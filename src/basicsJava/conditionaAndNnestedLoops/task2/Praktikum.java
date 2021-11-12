@@ -1,4 +1,4 @@
-package java.basics.conditionaAndNnestedLoops.task2;
+package basicsJava.conditionaAndNnestedLoops.task2;
 
 class Praktikum {
     public static void main(String[] args) {
