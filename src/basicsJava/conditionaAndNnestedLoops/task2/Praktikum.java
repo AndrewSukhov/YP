@@ -3,7 +3,7 @@ package basicsJava.conditionaAndNnestedLoops.task2;
 class Praktikum {
     public static void main(String[] args) {
 
-        for (int i = 1; i <=6 ; i++) {
+        for (int i = 1; i <=5 ; i++) {
             // В тренировке должно выполниться 5 кругов
             System.out.println("Круг " + i);
             // Выполнение каждого круга зависит от условия - проверьте, является ли круг чётным
