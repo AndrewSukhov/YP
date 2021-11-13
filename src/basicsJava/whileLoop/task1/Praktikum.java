@@ -9,12 +9,12 @@ class Praktikum {
         double balance = scanner.nextDouble(); // Ваши сбережения
         int years = 0;
 
-        while (...) {
-            balance = ...;
-            years = ...;
+        while (balance <= 1000000) {
+            balance += balance * .05 ;
+            years += 1;
         }
 
-        System.out.println("Через " + ... + " лет у вас будет миллион!");
+        System.out.println("Через " + years + " лет у вас будет миллион!");
     }
 }
 /*
