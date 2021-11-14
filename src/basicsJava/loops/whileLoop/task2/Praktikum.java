@@ -1,4 +1,4 @@
-package basicsJava.whileLoop.task2;
+package basicsJava.loops.whileLoop.task2;
 
 import java.util.Random;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package basicsJava.whileLoop.task1;
+package basicsJava.loops.whileLoop.task1;
 
 import java.util.Scanner;
 

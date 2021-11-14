@@ -1,4 +1,4 @@
-package basicsJava.endlessLoop.task1;
+package basicsJava.loops.endlessLoop.task1;
 
 import java.util.Scanner;
 
