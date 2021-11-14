@@ -6,12 +6,11 @@ class Praktikum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int sum = 0; // Сумма
-        int input = 1; // Ввод пользователя
+        int input = scanner.nextInt(); // Ввод пользователя
 
         while (input != 0) {
-            input = 0;
-            input = scanner.nextInt();
             sum = sum + input;
+            input = scanner.nextInt();
         }
         System.out.println("Сумма введённых чисел: " + sum);
     }
