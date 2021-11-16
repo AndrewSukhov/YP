@@ -12,6 +12,25 @@ class Praktikum {
         double sundayExpense = 200.00;
 
         // Объявите массив expenses и соберите в него значения из переменных
+        double[] expenses1 = {
+                100.50,
+                500.00,
+                10.00,
+                0.0,
+                40.60,
+                500.10,
+                200.00
+        };
+
+        double[] expenses = {
+                mondayExpense,
+                tuesdayExpense,
+                wednesdayExpense,
+                thursdayExpense,
+                fridayExpense,
+                saturdayExpense,
+                sundayExpense
+        };
     }
 }
 
