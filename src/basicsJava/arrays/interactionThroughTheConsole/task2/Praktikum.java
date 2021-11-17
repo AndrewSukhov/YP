@@ -12,15 +12,15 @@ class Praktikum {
         System.out.println("Введите индекс дня, траты за который вы хотите отредактировать:");
 
         // Объявите переменную, которая будет хранить индекс выбранного элемента
-        ... = scanner.nextInt();
+        int index = scanner.nextInt();
 
         System.out.println("Введите новую сумму трат за этот день:");
         // Объявите переменную, в которой будет сохранено новое значение трат за выбранный день
-        ... = scanner.nextDouble();
+        double newExpense = scanner.nextDouble();
 
         // Замените значение элемента с нужным индексом на новое
-        ...
-        System.out.println("За день с индексом " + ... + " размер трат теперь " + ... );
+        expenses[index] = newExpense;
+        System.out.println("За день с индексом " + index + " размер трат теперь " + newExpense );
     }
 }
 
