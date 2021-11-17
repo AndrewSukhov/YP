@@ -15,12 +15,14 @@ class Praktikum {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Если вы планируете поездку в Данию, введите 1, а если в Китай, введите 2");
 
-        int country = ...;  // Считайте из консоли ввод пользователя
+        int country = scanner.nextInt();  // Считайте из консоли ввод пользователя
 
         // Если выбрана Дания, измените значение элемента евро на кроны DKK
-        ...
-        // Если Китай, измените значение элемента иена на юани CNY
-        ...
+        if (country == 1) {
+            currencies[1] = "DKK";
+        } else if (country == 2) { // Если Китай, измените значение элемента иена на юани CNY
+            currencies[2] = "CNY";
+        }
 
         System.out.println("В вашем тревел-кошельке доступны следующие валюты:");
         System.out.println(currencies[0]);
