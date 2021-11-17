@@ -17,20 +17,20 @@ class Praktikum {
         System.out.println("4-Сашими");
 
         // Считайте из консоли индекс блюда, которое нужно переместить
-        int firstIndex = ...
+        int firstIndex = scanner.nextInt();
 
         System.out.println("Введите позицию, на которую хотите его переместить, от 0 до 4:");
         // Объявите переменную secondIndex для нового положения (индекса) блюда, считайте его из консоли
-        ...
+        int secondIndex = scanner.nextInt();
 
         // Сохраните значение блюда под индексом firstIndex в переменную swap
-        String swap = ...
+        String swap = dishes[firstIndex];
 
         // Присвойте блюду с индексом firstIndex значение блюда под индексом secondIndex
-       ... = ...
+        dishes[firstIndex] = dishes[secondIndex];
 
         // Присвойте блюду с индексом secondIndex значение переменной swap
-        ... = swap;
+        dishes[secondIndex] = swap;
 
         System.out.println("Ваш рейтинг блюд:");
         System.out.println(dishes[0]);
