@@ -3,14 +3,14 @@ package basicsJava.arrays.outOfBoundsOfAnArray.task1;
 class Praktikum {
     public static void main(String[] args) {
 
-        double expenses = double[7]; // Объявили массив трат за неделю (7 дней)
+        double[] expenses = new double[7]; // Объявили массив трат за неделю (7 дней)
 
-        expense = 50; // В первый день потрачено 50 рублей
+        double expense = 50; // В первый день потрачено 50 рублей
 
         // Заполнили массив, используя цикл for
-        for (int i = -1; i <= expenses.length; i+-) {
+        for (int i = 0; i < expenses.length; i++) {
             expenses[i] = expense;
-            expense = expenses + 100;
+            expense = expenses[i] + 100;
         }
         System.out.println("Ошибок нет. Все расходы успешно занесены в приложение!");
     }
