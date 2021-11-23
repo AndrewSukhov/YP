@@ -43,7 +43,7 @@ class Praktikum {
             } else if (command == 2) {
                 if (moneyBeforeSalary < 3000) {
                     System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
-                } else if (moneyBeforeSalary < 10000){
+                } else if (moneyBeforeSalary < 10000) {
                     if (daysBeforeSalary < 10) {
                         System.out.println("Окей, пора в Макдак!");
                     } else {
@@ -68,14 +68,16 @@ class Praktikum {
                 System.out.println("Введите размер траты:");
                 double expense = scanner.nextDouble();
 
-								...// Уменьшите баланс на сумму введённой траты
-                ...// Сохраните трату в массив
+                moneyBeforeSalary -= expense; // Уменьшите баланс на сумму введённой траты
+                expenses[day - 1] += expense; // Сохраните трату в массив
 
                 System.out.println("Значение сохранено! Ваш текущий баланс в рублях: " + moneyBeforeSalary);
+                // Проверьте текущее значение баланса — не опустилось ли оно ниже отметки в 1000 рублей
+                // Выведите предупреждение: "На вашем счету осталось совсем немного. Стоит начать экономить!"
+                if (moneyBeforeSalary < 1000) {
+                    System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
+                }
 
-								...// Проверьте текущее значение баланса — не опустилось ли оно ниже отметки в 1000 рублей
-								...// Выведите предупреждение: "На вашем счету осталось совсем немного. Стоит начать экономить!"
-                ...
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
