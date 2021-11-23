@@ -24,7 +24,7 @@ class Praktikum {
             System.out.println("2 - Получить совет");
             System.out.println("3 - Ввести трату");
             // Допишите новый пункт цифрового меню
-            ...
+            System.out.println("4 - Показать траты за неделю");
             System.out.println("0 - Выход");
 
             int command = scanner.nextInt();
@@ -45,7 +45,7 @@ class Praktikum {
             } else if (command == 2) {
                 if (moneyBeforeSalary < 3000) {
                     System.out.println("Сегодня лучше поесть дома. Экономьте, и вы дотянете до зарплаты!");
-                } else if (moneyBeforeSalary < 10000){
+                } else if (moneyBeforeSalary < 10000) {
                     if (daysBeforeSalary < 10) {
                         System.out.println("Окей, пора в Макдак!");
                     } else {
@@ -75,18 +75,19 @@ class Praktikum {
                 if (moneyBeforeSalary < 1000) {
                     System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
                 }
-            } ... // Добавьте ветвление для обработки новой команды
-              ... // Используйте цикл for, чтобы получить все траты — элементы массива expenses
-            // Напечатайте в цикле строку: "День _. Потрачено _ рублей.".
-
-        } else if (command == 0) {
-            System.out.println("Выход");
-            break;
-        } else {
-            System.out.println("Извините, такой команды пока нет.");
+            } else if (command == 4) { // Добавьте ветвление для обработки новой команды
+                for (int i = 0; i < expenses.length; i++) {
+                    System.out.println("День " + (i + 1) + ". Потрачено " + expenses[i] + " рублей.");
+                }// Используйте цикл for, чтобы получить все траты — элементы массива expenses
+                // Напечатайте в цикле строку: "День _. Потрачено _ рублей.".
+            } else if (command == 0) {
+                System.out.println("Выход");
+                break;
+            } else {
+                System.out.println("Извините, такой команды пока нет.");
+            }
         }
     }
-}
 }
 /*
 Условие задачи:
