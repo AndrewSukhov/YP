@@ -6,26 +6,32 @@ public class Praktikum {
     public static void main(String[] args) {
         System.out.println("Робот-помощник v2.0.");
         // Вызовите ниже методы в правильном порядке
-    ...
-    ...
-    ...
+        sayHello();
+        sayHelloByTime();
+        welcomeUserByName();
+        printSuccess();
     }
 
     public static void welcomeUserByName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Как вас зовут?");
         String name = scanner.next();
+        printCity();
+        String city = scanner.next();
         System.out.println("Рад познакомиться, " + name + " из " + city + "!");
+    }
+
+    public static void sayHello() { // Допишите метод sayHello(), который печатает: Привет!
+        System.out.println("Привет!");
     }
 
     public static void printSuccess() {
         System.out.println("У вас уже неплохо получается программировать!");
     }
 
-    ... // Допишите метод sayHello(), который печатает: Привет!
-
-            ... // Допишите метод printCity(), который спрашивает: Из какого вы города?
-
+    public static void printCity() {// Допишите метод printCity(), который спрашивает: Из какого вы города?
+        System.out.println("Из какого вы города?");
+    }
     public static void sayHelloByTime() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Который час?");
