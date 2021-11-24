@@ -4,7 +4,7 @@ public class Praktikum {
 
     public static void main(String[] args) {
         // Ниже вызовите новый метод
-        String highestGrossingFilm = ...;
+        String highestGrossingFilm = findHighestGrossingFilm();
         System.out.println("Самый кассовый фильм: " + highestGrossingFilm);
     }
 
@@ -19,9 +19,13 @@ public class Praktikum {
         int income3 = 1084;
 
         // Напишите реализацию нового метода ниже
-        ...
+        if (income1 > income2 && income1 > income3)
+            return film1;
+        else if (income2 > income1 && income2 > income3)
+            return film2;
+        else
+            return film3;
     }
-
 }
 /*
 Условие задачи:
