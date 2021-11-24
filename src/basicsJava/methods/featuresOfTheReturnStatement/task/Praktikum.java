@@ -6,13 +6,11 @@ public class Praktikum {
 
     public static void main(String[] args) {
         System.out.println("Привет!");
-
-        return doCommand();
+        doCommand();
     }
 
     public static void doCommand() {
         Scanner scanner = new Scanner(System.in);
-        break;
         while (true) {
             System.out.println("Что вы хотите сделать?");
             System.out.println("1 - Получить совет о покупке евро");
@@ -21,16 +19,14 @@ public class Praktikum {
             int command = scanner.nextInt();
             if (command == 1) {
                 System.out.println("Если евро стоит меньше 90 рублей - покупайте!");
-                return;
             } else if (command == 2) {
-                return "Если доллар стоит меньше 75 рублей - покупайте!";
+                System.out.println("Если доллар стоит меньше 75 рублей - покупайте!");
             } else if (command == 0) {
                 System.out.println("Выход");
-                break;
+                return;
             }
         }
     }
-
 }
 /*
 Условие задачи:
