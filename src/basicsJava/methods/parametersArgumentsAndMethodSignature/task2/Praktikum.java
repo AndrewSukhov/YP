@@ -1,16 +1,25 @@
 package basicsJava.methods.parametersArgumentsAndMethodSignature.task2;
 
+import java.lang.reflect.Array;
+
 public class Praktikum {
 
     public static void main(String[] args) {
         double[] expenses = {1772.5, 367.0, 120.6, 2150.2, 874.0, 1.0, 1459.4};
-        double maxExpense = ... // Вызовите метод и присвойте maxExpense значение его результата
+        double maxExpense = findMaxExpense(expenses); // Вызовите метод и присвойте maxExpense значение его результата
         System.out.println("Самая большая трата недели " + maxExpense);
     }
 
-	... // Объявите метод findMaxExpense
-            ... // Реализуйте метод. Чтобы найти самую большую трату, воспользуйтесь циклом
-            ... // Самую большую трату запишите в переменную maxExpense
+    public static double findMaxExpense(double[] expenses) {
+        double maxExpense = Double.MIN_VALUE;
+        for (double expens : expenses) {
+            if (expens > maxExpense)
+                maxExpense = expens;
+        }
+        return maxExpense;
+    } // Объявите метод findMaxExpense
+    // Реализуйте метод. Чтобы найти самую большую трату, воспользуйтесь циклом
+    // Самую большую трату запишите в переменную maxExpense
 
 }
 /*
