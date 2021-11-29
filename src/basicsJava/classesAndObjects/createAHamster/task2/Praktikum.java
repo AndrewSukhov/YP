@@ -5,9 +5,9 @@ public class Praktikum {
         Hamster homka = new Hamster();
 
         System.out.println("Имя: " + homka.name);
-        System.out.println("Возраст: " + ... );
-        System.out.println("Вес: " + ... );
-        System.out.println("Цвет: " + ... );
+        System.out.println("Возраст: " + homka.age);
+        System.out.println("Вес: " + homka.weight);
+        System.out.println("Цвет: " + homka.color);
     }
 }
 /*
