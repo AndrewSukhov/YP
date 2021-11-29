@@ -1,9 +1,9 @@
 package basicsJava.classesAndObjects.task2;
 
 public class Converter {
-    //доллар = 78.5;
-    //евро = 88.7;
-    //иена = 0.75;
+   double rateUSD; //доллар = 78.5;
+   double rateEUR; //евро = 88.7;
+   double rateJPY; //иена = 0.75;
 }
 /*
 Условие задачи:
