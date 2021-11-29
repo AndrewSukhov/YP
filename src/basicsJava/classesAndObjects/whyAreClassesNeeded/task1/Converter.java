@@ -1,4 +1,4 @@
-package basicsJava.classesAndObjects.task1;
+package basicsJava.classesAndObjects.whyAreClassesNeeded.task1;
 
 public class Converter {
 }

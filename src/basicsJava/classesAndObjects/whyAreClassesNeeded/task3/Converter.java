@@ -1,4 +1,4 @@
-package basicsJava.classesAndObjects.task3;
+package basicsJava.classesAndObjects.whyAreClassesNeeded.task3;
 
 public class Converter {
     double rateUSD = 78.5;
