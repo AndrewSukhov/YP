@@ -15,8 +15,7 @@ public class Praktikum {
         System.out.println("Цвет: " +  homka.color);
 
         // Покормите хомяка и напечатайте его вес
-    ...
-        System.out.println("Новый вес: " + ...);
+        System.out.println("Новый вес: " + homka.eat(15));
     }
 }
 /*
