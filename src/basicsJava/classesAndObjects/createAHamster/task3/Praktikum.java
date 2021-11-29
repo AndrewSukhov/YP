@@ -4,7 +4,10 @@ public class Praktikum {
     public static void main(String[] args) {
         Hamster homka = new Hamster();
         // Присвойте полям новые значения
-    ...
+        homka.name = "Хомка";
+        homka.age = 1;
+        homka.weight = 420;
+        homka.color = "чёрный";
 
         System.out.println("Имя: " + homka.name);
         System.out.println("Возраст: " + homka.age);
