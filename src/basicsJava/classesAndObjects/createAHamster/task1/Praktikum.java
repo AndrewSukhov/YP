@@ -2,7 +2,7 @@ package basicsJava.classesAndObjects.createAHamster.task1;
 
 public class Praktikum {
     public static void main(String[] args) {
-        Hamster homka = ...
+        Hamster homka = new Hamster();
 
         System.out.println("Имя: " + homka.name);
     }
