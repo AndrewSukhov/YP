@@ -2,29 +2,13 @@ package basicsJava.classesAndObjects.сonstructors.task1;
 
 public class Praktikum {
     public static void main(String[] args) {
-        Hamster bite = new Hamster();
-        bite.name = "Байт";
-        bite.age = 2;
-        bite.color = "Рыжий";
-        bite.weight = 350;
+        Hamster bite = new Hamster("Байт", 2, 350, "Рыжий");
 
-        Hamster ninja = new Hamster();
-        ninja.name = "Ниндзя";
-        ninja.age = 1;
-        ninja.weight = 250;
-        ninja.color = "Белый";
+        Hamster ninja = new Hamster("Ниндзя", 1, 250, "Белый");
 
-        Hamster kuzya = new Hamster();
-        kuzya.name = "Кузя";
-        kuzya.age = 3;
-        kuzya.weight = 450;
-        kuzya.color = "Пятнистый";
+        Hamster kuzya = new Hamster("Кузя", 3, 450, "Пятнистый");
 
-        Hamster paskal = new Hamster();
-        paskal.name = "Паскаль";
-        paskal.age = 2;
-        paskal.weight = 320;
-        paskal.color = "Чёрный";
+        Hamster paskal = new Hamster("Паскаль", 2, 320, "Чёрный");
 
         System.out.println(bite.name);
         System.out.println(ninja.name);
