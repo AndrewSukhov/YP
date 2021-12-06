@@ -2,11 +2,7 @@ package JavaCore1.module1.sptint1.theme03.task0303;
 
 public class Praktikum {
     public static void main(String[] args) {
-        WeatherCalendar calendar;
-        calendar.month = "Октябрь";
-        calendar.numberOfDays = 31;
-        calendar.rainyDays = 0;
-        calendar.isRainyMonth = false;
+        WeatherCalendar calendar = new WeatherCalendar("Октябрь", 31);
 
         String[] octoberWeather = new String[]{
                 "Солнечно",
@@ -51,15 +47,15 @@ public class Praktikum {
         }
 
         // Проверить, был ли месяц дождливым. Если да - установить значение isRainyMonth
-        if (...) {
-            ...
+        if (calendar.rainyDays > 15) {
+            calendar.isRainyMonth = true;
         }
 
         System.out.println(calendar.month + " " + calendar.year + " года. "
                 + calendar.rainyDays + " дней шёл дождь.");
 
         // Проверить значение isRainyMonth
-        if (...) {
+        if (calendar.isRainyMonth) {
             System.out.println("Это был дождливый месяц.");
         } else {
             System.out.println("Этот месяц был довольно сухим.");

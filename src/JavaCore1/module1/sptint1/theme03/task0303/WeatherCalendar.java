@@ -7,8 +7,14 @@ class WeatherCalendar {
     int year;
     boolean isRainyMonth;
 
+    WeatherCalendar (String monthName, int monthNumberOfDays) {
+        this.month = monthName;
+        this. numberOfDays = monthNumberOfDays;
+        this.year = 2020;
+    }
+
     // Увеличить переменную rainyDays на единицу
     public void addRainyDay() {
-            ...
+        rainyDays++;
     }
 }
