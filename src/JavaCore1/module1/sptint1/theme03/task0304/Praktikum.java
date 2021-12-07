@@ -16,14 +16,13 @@ public class Praktikum {
                 inputHasHelper
         );
 
-        int characterGold = ...
-        int characterSilver = ...
-        double characterWood = ...
-        byte characterHealth = ...
-        byte characterHelpersNumber;
-
+        int characterGold = (int) characterResources.gold;
+        int characterSilver = (int) (characterResources.silver * 100);
+        double characterWood = (double) characterResources.wood;
+        byte characterHealth = (byte) characterResources.health;
         // Установка значения characterHelpersNumber в зависимости от значения hasHelper
-        ...
+        byte characterHelpersNumber = (byte) (characterResources.hasHelper ? 1 : 0);
+
 
         Character character = new Character(
                 characterGold,
