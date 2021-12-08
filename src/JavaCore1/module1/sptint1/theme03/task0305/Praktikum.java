@@ -35,13 +35,13 @@ public class Praktikum {
 
         System.out.println("Поздравляем, аккаунт для пользователя " + user.name + " создан.");
         System.out.println("Открытые счета:");
-        if (user.moneyRUB == 0.0) {
+        if (user.moneyRUB != null) {
             System.out.println("- RUB");
         }
-        if (user.moneyUSD == 0.0) {
+        if (user.moneyUSD != null) {
             System.out.println("- USD");
         }
-        if (user.moneyEUR == 0.0) {
+        if (user.moneyEUR != null) {
             System.out.println("- EUR");
         }
 
