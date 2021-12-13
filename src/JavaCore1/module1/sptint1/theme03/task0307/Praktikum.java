@@ -20,11 +20,11 @@ public class Praktikum {
     }
 
     private static void increaseTicketNumber(Bus bus) {
-        increase(bus.ticketNumber, 1);
+        bus.ticketNumber = increase(bus.ticketNumber, 1);
     }
 
-    private static void increase(int numberToIncrease, int increaser) {
-        numberToIncrease = numberToIncrease + increaser;
+    private static int increase(int numberToIncrease, int increaser) {
+       return numberToIncrease = numberToIncrease + increaser;
     }
 }
 /*
