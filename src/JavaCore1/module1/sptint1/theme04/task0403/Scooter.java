@@ -12,19 +12,19 @@ class Scooter {
     }
 
     void getPrice() {
-        ... { // Проверьте, есть ли доступные самокаты
+        if (availableScooters < 1) { // Проверьте, есть ли доступные самокаты
             System.out.println("Нет доступных самокатов.");
         } else {
-            int currentPrice = ... // Посчитайте текущую стоимость проката
+            int currentPrice = defaultPrice + ((scootersInUse + 1) / availableScooters) * additionalPrice; // Посчитайте текущую стоимость проката
             System.out.println("Текущая стоимость проката: " + currentPrice + " руб/мин");
         }
     }
 
     void rentScooter() {
-        if (...) { // Проверьте, есть ли доступные самокаты
+        if (availableScooters < 1) { // Проверьте, есть ли доступные самокаты
             System.out.println("Доступных самокатов не осталось.");
         } else {
-            int currentPrice = ... /* Посчитайте текущую стоимость проката,
+            int currentPrice = defaultPrice + ((scootersInUse++ + 1) / availableScooters--) * additionalPrice;  /* Посчитайте текущую стоимость проката,
             увеличьте число арендованных самокатов и уменьшите число доступных */
             System.out.println("Выдайте самокат по цене " + currentPrice + " руб/мин");
             System.out.println("Самокатов в аренде: " + scootersInUse);
@@ -33,10 +33,11 @@ class Scooter {
     }
 
     void returnScooter() {
-        ... { // Проверьте, есть ли самокаты в аренде
+        if (scootersInUse  == 0) { // Проверьте, есть ли самокаты в аренде
             System.out.println("Все самокаты уже возвращены.");
         } else {
-            ... // Уменьшите число арендованных самокатов и увеличьте число доступных
+            scootersInUse--;
+            availableScooters++;// Уменьшите число арендованных самокатов и увеличьте число доступных
             System.out.println("Самокат принят.");
             System.out.println("Самокатов в аренде: " + scootersInUse);
             System.out.println("Самокатов доступно: " + availableScooters);
