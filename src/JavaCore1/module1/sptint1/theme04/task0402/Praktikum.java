@@ -2,22 +2,22 @@ package JavaCore1.module1.sptint1.theme04.task0402;
 
 public class Praktikum {
     public static void main(String[] args) {
-        ... roubles = 5000; // сумма на счету
-        ... yearRate = 4; // годовая процентная ставка
-        ... numOfMonth = 36; // количество месяцев, на который открыт вклад
-        ... monthRefill = 1000; // ежемесячное пополнение
+        double roubles = 5000; // сумма на счету
+        double yearRate = 4; // годовая процентная ставка
+        int numOfMonth = 36; // количество месяцев, на который открыт вклад
+        double monthRefill = 1000; // ежемесячное пополнение
 
-        ... monthRate = ... // вычислите месячную процентную ставку
+        double monthRate = yearRate / 12; // вычислите месячную процентную ставку
 
-        for (...) { // дополните условие цикла
-        ... depositInterest = ... // вычислите доход от процентов
-        ... // добавьте доход от процентов
-        ... // учтите ежемесячное пополнение
+        for (int i = 0; i < numOfMonth; i++) { // дополните условие цикла
+        double depositInterest = roubles * monthRate / 100; // вычислите доход от процентов
+        roubles = roubles + depositInterest; // добавьте доход от процентов
+        roubles = roubles + monthRefill; // учтите ежемесячное пополнение
         }
 
         System.out.println("Через " + numOfMonth + " месяцев накопится " + roubles + " рублей");
 
-        if (...) { // определите, удалось ли достичь цели
+        if (roubles % 41000 >= 0) { // определите, удалось ли достичь цели
             System.out.println("Ура! Можно идти в магазин за новым объективом!");
         } else {
             System.out.println("Нужно ещё немного подкопить.");
