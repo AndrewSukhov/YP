@@ -3,7 +3,16 @@ package JavaCore1.module1.sptint1.theme04.task0405.task01;
 public class Praktikum {
     public static void main(String[] args) {
         for (int i = 1; i < 21; i++) {
-            ... // Решение должно быть в теле цикла
+             // Решение должно быть в теле цикла
+            if (i % 3 == 0  && i % 5 != 0) {
+                System.out.println("Яндекс");
+            } else if (i % 5 == 0 && i % 3 != 0) {
+                System.out.println("Практикум");
+            } else if (i % 5 == 0 && i % 3 == 0) {
+                System.out.println("Яндекс.Практикум");
+            } else {
+                System.out.println(i);
+            }
         }
     }
 }
