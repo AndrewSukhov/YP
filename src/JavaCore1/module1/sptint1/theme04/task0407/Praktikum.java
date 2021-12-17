@@ -40,12 +40,12 @@ public class Praktikum {
                 System.out.println("Гонка будет проходить на дистанции: " + distance + " км.");
 
                 int points = makeRace(userCar, opponentCar, distance);
-                changePointAndDistance(...); // передайте в метод аргументы
+                changePointAndDistance(userCar, points, distance); // передайте в метод аргументы
 
             } else if (command == 2) {
                 // Напечайте количество заработанных очков и пройденных километров
-                System.out.println("- Количество заработанных очков: " + ...);
-                System.out.println("- Пройдено километров на этом авто: " + ...);
+                System.out.println("- Количество заработанных очков: " + userCar.score);
+                System.out.println("- Пройдено километров на этом авто: " + userCar.kilometersTravelled);
             } else if (command == 3) {
                 System.out.println("Увидимся!");
                 break;
@@ -53,51 +53,35 @@ public class Praktikum {
         }
     }
 
-    private static void changePointAndDistance(int points, int distance) { // реализуйте метод
+    private static void changePointAndDistance(Car car, int points, int distance) { // реализуйте метод
         // В результате выполнения метода у userCar количество очков должно увеличиться
         // на значение points, пройденное расстояние - на значение distance.
-
+        car.score += points;
+        car.kilometersTravelled += distance;
     }
-    /*етод makeRace(Car userCar, Car opponentCar, int distance) должен определять
-    победителя и возвращать количество полученных или проигранных очков:
-    Если гоночная дистанция — переменная distance — меньше или равна 15 километрам,
-    то победителем объявляется тот игрок, у автомобиля которого больше ускорение —
-    поле acceleration. Если дистанция больше 50 километров, то выигрывает тот,
-    у автомобиля которого наибольшая максимальная скорость — поле maxSpeed.
-    В случае победы игрока метод возвращает количество очков, равное наибольшему
-    из максимальных скоростей участников.
-    Если по первому условию определить победителя не удалось, сравниваются ускорения игроков.
-    Если они равны, объявляется ничья и метод возвращает 0 очков.
-    Если и ничью определить не удалось, сравнивается уровень закиси азота.
-    Если он строго больше, то метод возвращает 0 очков. Если нет, метод возвращает -100 очков.
 
-    В методе makeRace(Car userCar, Car opponentCar, int distance) найти максимум
-двух чисел типа double можно с помощью метода Double.max(). Метод Double.max()
-возвращает тип double, который для корректной работы метода нужно явно привести к int.
-Чтобы была ничья, должны совпасть ускорения userCar.acceleration == opponentCar.acceleration.
-     */
     private static int makeRace(Car userCar, Car opponentCar, int distance) {
         printFlag();
         // Напишите логические выражения для определения победителя
-        boolean shortRaceWin = ... // на короткой дистанции
-        boolean longRaceWin = ... // на длинной дистанции
+        boolean shortRaceWin = distance <=15; // на короткой дистанции
+        boolean longRaceWin = distance > 50; // на длинной дистанции
 
-        if (...) { // если победил на короткой или на длинной дистанции
+        if ((shortRaceWin &&  userCar.acceleration > opponentCar.acceleration)
+                || (longRaceWin && userCar.maxSpeed > opponentCar.maxSpeed)) { // если победил на короткой или на длинной дистанции
             System.out.println("Вы выиграли!");
             // Найдите и верните наибольшее из максимальных скоростей
-            ...
-            return ...;
-        } else if (...) { // Уровни ускорения должны быть равны
+            return (int) Double.max(userCar.maxSpeed, opponentCar.maxSpeed);
+        } else if (userCar.acceleration == opponentCar.acceleration) { // Уровни ускорения должны быть равны
             System.out.println("Ничья!");
-            return ...
+            return 0;
         } else {
             // Сравните уровни закиси азота
-            if (...) {
+            if (userCar.nitroLevel > opponentCar.nitroLevel) {
                 System.out.println("Вы проиграли, но благодаря закиси азота сохранили очки.");
-                return ...;
+                return 0;
             } else {
                 System.out.println("Вы проиграли(");
-                return ...;
+                return -100;
             }
         }
     }
@@ -139,7 +123,7 @@ public class Praktikum {
         // Конвертируйте параметры в нужные типы
         double maxSpeed = Double.parseDouble(carProperties.maxSpeed);
         float acceleration = (float) carProperties.acceleration;
-        int score = ...;
+        int score = carProperties.initialScore;
         Integer nitroLevel = getNitroLevel(carProperties.nitroLevel);
 
         return new Car( // Метод возвращает экземпляр класса Car
