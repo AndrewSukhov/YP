@@ -1,5 +1,3 @@
-package JavaCore1.module1.sptint1.theme05.task0504.task02;
-
 public class Converter {
     double rateUSD;
     double rateEUR;

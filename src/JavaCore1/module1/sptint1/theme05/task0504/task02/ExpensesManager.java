@@ -6,11 +6,12 @@ public class ExpensesManager {
     ArrayList<Double> expenses;
 
     ExpensesManager() {
-        expenses = new ArrayList<>(); // Создайте список в конструкторе
+        expenses = new ArrayList<>();
     }
+
     double saveExpense(double moneyBeforeSalary, double expense) {
-        expenses.add(expense);
         moneyBeforeSalary = moneyBeforeSalary - expense;
+        expenses.add(expense);
         System.out.println("Значение сохранено! Ваш текущий баланс в рублях: " + moneyBeforeSalary);
         if (moneyBeforeSalary < 1000) {
             System.out.println("На вашем счету осталось совсем немного. Стоит начать экономить!");
@@ -26,10 +27,20 @@ public class ExpensesManager {
 
     double findMaxExpense() {
         double maxExpense = 0;
-        for (Double expense : expenses) {
-            if (expense > maxExpense)
-                maxExpense = expense;
+        for (Double exp : expenses) {
+            if (exp > maxExpense) {
+                maxExpense = exp;
+            }
         }
         return maxExpense;
     }
+
+    // Добавьте метод removeAllExpenses()
+    ... // Текст для печати: "Список трат пуст."
+
+            // Добавьте метод removeExpense(double expense)
+            ... /* Текст для печати: "Список трат пуст."
+        "Трата удалена!"
+        "Такой траты нет." */
+
 }
