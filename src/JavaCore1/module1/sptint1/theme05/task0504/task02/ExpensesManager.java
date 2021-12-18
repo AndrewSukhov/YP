@@ -35,12 +35,17 @@ public class ExpensesManager {
         return maxExpense;
     }
 
-    // Добавьте метод removeAllExpenses()
-    ... // Текст для печати: "Список трат пуст."
-
-            // Добавьте метод removeExpense(double expense)
-            ... /* Текст для печати: "Список трат пуст."
-        "Трата удалена!"
-        "Такой траты нет." */
-
+    void removeAllExpenses() {
+        expenses.clear();
+        System.out.println("Список трат пуст.");
+    }
+    void removeExpense(double expense) {
+        if (expenses.isEmpty()) {
+            System.out.println("Список трат пуст.");
+        } else if(expenses.contains(expense)) {
+            expenses.remove(expense);
+            System.out.println("Трата удалена!");
+        } else if (!expenses.contains(expense))
+        System.out.println("Такой траты нет.");
+    }
 }
