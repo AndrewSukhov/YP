@@ -18,27 +18,29 @@ public class Praktikum {
             printMenu();
             int command = scanner.nextInt();
             if (command == 1) {
-                System.out.println("Сейчас в зоопарке можно увидеть " + ... + " животных:");
-                for (...) {
-                    ... // Напечатайте животных
+                System.out.println("Сейчас в зоопарке можно увидеть " + animals.size() + " животных:");
+                for (String animal : animals) {
+                    System.out.println(animal); // Напечатайте животных
                 }
             } else if (command == 2) {
                 System.out.println("Какое животное хотите добавить?");
                 String animal = scanner.next();
-                ... // Добавьте животное
+                animals.add(animal); // Добавьте животное
             } else if (command == 3) {
                 System.out.println("Какое животное нужно удалить?");
                 String animal = scanner.next();
-                ... // Удалите животное, если список не пуст
+                if (animals.contains(animal))
+                    animals.remove(animal);// Удалите животное, если список не пуст
             } else if (command == 4) {
-                ... // Очистите список
+                animals.clear(); // Очистите список
                 System.out.println("Все животные перевезены в другой зоопарк. Список пуст.");
             } else if (command == 5) {
                 System.out.println("Какое животное вы хотите увидеть в зоопарке?");
                 String animal = scanner.next();
-                ... // Допишите условия
-                // System.out.println(animal + " на месте! Приходите посмотреть.");
-                // System.out.println("Такого животного сейчас нет в нашем зоопарке.");
+                if (animals.contains(animal))// Допишите условия
+                     System.out.println(animal + " на месте! Приходите посмотреть.");
+                else
+                    System.out.println("Такого животного сейчас нет в нашем зоопарке.");
             } else {
                 break;
             }
