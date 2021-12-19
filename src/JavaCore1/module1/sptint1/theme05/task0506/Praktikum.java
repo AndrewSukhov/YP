@@ -1,8 +1,38 @@
 package JavaCore1.module1.sptint1.theme05.task0506;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Praktikum {
     public static void main(String[] args) {
-        // System.out.println(stateHolidays)
+        HashMap<String, ArrayList> stateHolidays = new HashMap<>();
+        ArrayList<Integer> january = new ArrayList<>();
+        january.add(1);
+        january.add(7);
+        stateHolidays.put("Январь", january);
+
+        ArrayList<Integer> february = new ArrayList<>();
+        february.add(23);
+        stateHolidays.put("Февраль", february);
+
+        ArrayList<Integer> march = new ArrayList<>();
+        march.add(8);
+        stateHolidays.put("Март", march);
+
+        ArrayList<Integer> may = new ArrayList<>();
+        may.add(1);
+        may.add(9);
+        stateHolidays.put("Май", may);
+
+        ArrayList<Integer> june = new ArrayList<>();
+        june.add(12);
+        stateHolidays.put("Июнь", june);
+
+        ArrayList<Integer> november = new ArrayList<>();
+        november.add(4);
+        stateHolidays.put("Ноябрь", november);
+
+         System.out.println(stateHolidays);
     }
 }
 /*
