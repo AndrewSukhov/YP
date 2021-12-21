@@ -31,14 +31,14 @@ public class Praktikum {
                 double expense = scanner.nextDouble();
                 System.out.println("К какой категории относится трата?");
                 String category = scanner.next();
-                moneyBeforeSalary = ...
+                moneyBeforeSalary = expensesManager.saveExpense(moneyBeforeSalary,expense,category);
             } else if (command == 4) {
                 expensesManager.printAllExpensesByCategories();
             } else if (command == 5) {
                 System.out.println("В какой категории искать?");
                 String category = scanner.next();
                 System.out.println("Самая большая трата в категории " + category + " составила "
-                        + ... + " руб.");
+                        + expensesManager.findMaxExpenseInCategory(category) + " руб.");
             } else if (command == 6) {
                 expensesManager.removeAllExpenses();
             } else if (command == 0) {
