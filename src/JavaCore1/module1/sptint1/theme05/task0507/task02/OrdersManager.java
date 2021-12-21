@@ -37,7 +37,7 @@ public class OrdersManager {
     }
 
     void printAllOrders() {
-        for (String name : ...) { // Цикл должен пройтись по ключам
+        for (String name : customersOrders.keySet()) { // Цикл должен пройтись по ключам
             System.out.println("Заказы " + name + ":");
             ArrayList<Double> value = customersOrders.get(name);
             System.out.println(value);
@@ -46,7 +46,7 @@ public class OrdersManager {
 
     double getOrdersSum() {
         double sum = 0;
-        for (ArrayList<Double> orders : ...) { // Здесь должен быть обход по значениям
+        for (ArrayList<Double> orders : customersOrders.values()) { // Здесь должен быть обход по значениям
             for (double orderPrice : orders) {
                 sum += orderPrice;
             }
@@ -55,7 +55,7 @@ public class OrdersManager {
     }
 
     void printCustomerOrders(String customerName) {
-        if (...) { // Проверьте, есть ли указанный ключ в таблице
+        if (customersOrders.containsKey(customerName)) { // Проверьте, есть ли указанный ключ в таблице
             System.out.println("Заказы " + customerName + ":");
             System.out.println(customersOrders.get(customerName));
         }
@@ -64,29 +64,36 @@ public class OrdersManager {
     String getMaxOrderCustomerName() {
         double maxOrder = 0;
         String customerName = "";
-
-        ... // Допишите логику работы метода
-
+        // Допишите логику работы метода
+        for (String customer : customersOrders.keySet()) { // клиент : клиенты
+            Double sum = 0d;
+            for (Double order : customersOrders.get(customer)) { // заказ : заказы
+                sum += order;
+            }
+            if (sum > maxOrder) {
+                maxOrder = sum;
+                customerName = customer;
+            }
+        }
         return customerName;
     }
 
     void removeUnprofitableOrders() {
-        ArrayList<String> names ... // Создайте список клиентов с заказами меньше 5000
-
+        ArrayList<String> names = new ArrayList<>();// Создайте список клиентов с заказами меньше 5000
         // Наполните список names
-        for ...
+        for (String customer : customersOrders.keySet()) {
+            double ordersSum = 0;
+            for (Double order : customersOrders.get(customer)) {
+                ordersSum += order;
+            }
+            if (ordersSum < 5000) {
+                names.add(customer);
+            }
+        }
 
-        double ordersSum = 0;
-        for ...
-
-        if (ordersSum < 5000) {
-                ...
+        for (String name : names) { // Удалите из хеш-таблицы тех, чьи расходы не превышают 5000
+            customersOrders.remove(name);
+            System.out.println("Клиента " + name + " больше нет в таблице.");
         }
     }
-
-        for ... // Удалите из хеш-таблицы тех, чьи расходы не превышают 5000
-
-                System.out.println("Клиента " + name + " больше нет в таблице.");
 }
-    }
-            }
