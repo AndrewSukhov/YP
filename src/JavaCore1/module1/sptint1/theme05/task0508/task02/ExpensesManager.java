@@ -57,13 +57,41 @@ public class ExpensesManager {
         System.out.println("Траты удалены.");
     }
 
-    ... // Напишите метод для получения суммы всех трат
+    // Напишите метод для удаления категории
+    public void removeCategory(String category) {
+//        if (expensesByCategories.containsKey(category)) {
+            expensesByCategories.remove(category);
+//        } else {
+//            System.out.println("Категории " + category + " нет в списке");
+//        }
+    }
 
-            ... // Напишите метод для удаления категории
+    // Напишите метод для получения суммы всех трат
+    public Double getExpensesSum() {
+        Double sum = 0d;
+        for (String expense : expensesByCategories.keySet()) {
+            for (Double spend : expensesByCategories.get(expense)) {
+                sum += spend;
+            }
+        }
+        return sum;
+    }
 
-            ... // Напишите метод для получения категории, где размер трат больше всего
-    // Используйте эти переменные для сохранения промежуточных значений
-    double maxCategorySum = 0;
-    String maxCategoryName = "";
-
+    // Напишите метод для получения категории, где размер трат больше всего
+    public String getMaxCategoryName() {
+        // Используйте эти переменные для сохранения промежуточных значений
+        double maxCategorySum = 0;
+        String maxCategoryName = "";
+        for (String caregory : expensesByCategories.keySet()) {
+            Double sum = 0d;
+            for (Double expense : expensesByCategories.get(caregory)) {
+                sum += expense;
+                if (sum > maxCategorySum) {
+                    maxCategorySum = sum;
+                    maxCategoryName = caregory;
+                }
+            }
+        }
+        return maxCategoryName;
+    }
 }

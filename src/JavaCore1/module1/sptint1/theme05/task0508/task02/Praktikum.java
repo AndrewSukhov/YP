@@ -41,14 +41,14 @@ public class Praktikum {
                         + expensesManager.findMaxExpenseInCategory(category) + " руб.");
             } else if (command == 6) {
                 expensesManager.removeAllExpenses();
-            } ... { // Допишите остальные пункты меню
-                System.out.println("Всего потрачено: " + ...);
-            } ... {
+            } else if (command == 7) { // Допишите остальные пункты меню
+                System.out.println("Всего потрачено: " + expensesManager.getExpensesSum());
+            } else if (command == 8) {
                 System.out.println("Какую категорию вы хотите удалить?");
                 String category = scanner.next();
-                ...
-            } ... {
-                // Напечатайте фразу "В категории ИМЯ_КАТЕГОРИИ вы потратили больше всего.");
+                expensesManager.removeCategory(category);
+            } else if (command == 9) {
+                System.out.println("В категории " + expensesManager.getMaxCategoryName() + " вы потратили больше всего.");
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
