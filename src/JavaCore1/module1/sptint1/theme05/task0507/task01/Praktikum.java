@@ -1,10 +1,11 @@
 package JavaCore1.module1.sptint1.theme05.task0507.task01;
 
-... // Импортируйте нужные классы
+import java.util.HashMap; // Импортируйте нужные классы
+import java.util.Scanner;
 
 public class Praktikum {
     public static void main(String[] args) {
-        ... // Объявите и проиницализируйте хеш-таблицу musicGroups
+        HashMap<String, Integer> musicGroups = new HashMap<>(); // Объявите и проиницализируйте хеш-таблицу musicGroups
         musicGroups.put("The Beatles", 1960);
         musicGroups.put("Rammstein", 1994);
         musicGroups.put("Queen", 1970);
@@ -21,8 +22,9 @@ public class Praktikum {
         musicGroups.put("The Doors", 1965);
 
         System.out.println("Легендарные группы, год основания которых вы можете узнать:");
-        ... // Распечайте список групп
-        ... // System.out.println(group)
+        for (String group : musicGroups.keySet()) {
+            System.out.println(group);
+        } // Распечайте список групп
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -32,23 +34,23 @@ public class Praktikum {
             System.out.println("3 - Выйти из приложения");
             int command = scanner.nextInt();
             if (command == 1) {
-                ... // "Введите название группы"
-                ... // keyGroup
-                ... // year
-               ... // "Год основания " + keyGroup
+                System.out.println("Введите название группы");
+                String keyGroup = scanner.next();
+                Integer year = musicGroups.get(keyGroup);
+                System.out.println("Год основания " + keyGroup);
                 System.out.println(year);
 
             } else if (command == 2) {
-                ... // "Добавьте свою любимую группу"
-                ... // "Введите её название"
-                ... // nameGroup
-                ... // "Введите год основания"
-                ... // bornYear
-                ...
+                System.out.println("Добавьте свою любимую группу");
+                System.out.println("Введите её название");
+                String nameGroup = scanner.next();
+                System.out.println("Введите год основания");
+                Integer bornYear = scanner.nextInt();
+                musicGroups.put(nameGroup, bornYear);
                 System.out.println("Информация о группе " + nameGroup + " добавлена.");
 
             } else if (command == 3) {
-              ... // Остановите цикл
+              break; // Остановите цикл
             } else {
                 System.out.println("Извините, такой команды пока нет.");
             }
