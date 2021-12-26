@@ -3,6 +3,11 @@ package JavaCore1.module1.sptint1.finalSprintTask.task1;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+Класс с основной логикой приложения — в нём хранится информация
+о пройденных шагах, реализована логика по сохранению и изменению количества шагов,
+а так же рассчитывается статистика.
+ */
 public class StepTracker {
     HashMap<String, ArrayList<Integer>> stepsCount;
     ArrayList<Integer> calendar;
@@ -26,7 +31,7 @@ public class StepTracker {
         stepsCount.put("Ноябрь", initArrayList());
         stepsCount.put("Декабрь", initArrayList());
     }
-
+    // Инициализация ArrayList<Integer> calendar
     private ArrayList<Integer> initArrayList() {
         calendar = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
@@ -35,9 +40,15 @@ public class StepTracker {
         return calendar;
     }
 
+    // Сохранение пройденных шагов за определенный день месяца
     public void saveSteps(String month, int day, int steps) {
         if (steps < 0) {
             System.out.println("Количество шагов должно быть неотрицательным");
+            return;
+        }
+        if (day < 1 || day > 30) {
+            System.out.println("Введен неверный день");
+            return;
         }
         if (stepsCount.containsKey(month)) {
             stepsCount.get(month).set((day - 1), steps);
@@ -47,6 +58,7 @@ public class StepTracker {
         }
     }
 
+    // Печать статистики за определенный месяц
     public void printStatistic(String month) {
         int totalSumSteps = 0;
         int maxSteps = 0;
@@ -85,6 +97,7 @@ public class StepTracker {
         }
     }
 
+    // Изменение целевого количества шагов
     void changePurposeOfDailySteps(int targetStepsCount) {
         if (targetStepsCount < 0) {
             System.out.println("Введённое значение не должно быть отрицательным");
