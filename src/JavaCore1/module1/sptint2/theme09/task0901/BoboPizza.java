@@ -6,26 +6,28 @@ import java.util.Scanner;
 
 public class BoboPizza {
     private Scanner scanner = new Scanner(System.in);
+    List<BikeTimeCalculator> bikes = new ArrayList<BikeTimeCalculator>() {{
+        add(new BikeTimeCalculator("Иван"));
+        add(new BikeTimeCalculator("Василий"));
+        add(new BikeTimeCalculator("Инга"));
+    }};
+    List<CarTimeCalculator> cars = new ArrayList<CarTimeCalculator>() {{
+        add(new CarTimeCalculator("Ольга"));
+        add(new CarTimeCalculator("Пётр"));
+    }};
+    List<HumanTimeCalculator> humans = new ArrayList<HumanTimeCalculator>() {{
+        add(new HumanTimeCalculator("Анна"));
+        add(new HumanTimeCalculator("Дмитрий"));
+        add(new HumanTimeCalculator("Алексей"));
+    }};
 
     public static void main(String[] args) {
-        List<BikeTimeCalculator> bikes = new ArrayList<BikeTimeCalculator>() {{
-            add(new BikeTimeCalculator("Иван"));
-            add(new BikeTimeCalculator("Василий"));
-            add(new BikeTimeCalculator("Инга"));
-        }};
-        List<CarTimeCalculator> cars = new ArrayList<CarTimeCalculator>() {{
-            add(new CarTimeCalculator("Ольга"));
-            add(new CarTimeCalculator("Пётр"));
-        }};
-        List<HumanTimeCalculator> humans = new ArrayList<HumanTimeCalculator>() {{
-            add(new HumanTimeCalculator("Анна"));
-            add(new HumanTimeCalculator("Дмитрий"));
-            add(new HumanTimeCalculator("Алексей"));
-        }};
+
         new BoboPizza().loop();
     }
 
     private void loop() {
+
         CourierSelector selector = new CourierSelector(bikes, cars, humans);
 
         DeliveryInfo delivery = null;
