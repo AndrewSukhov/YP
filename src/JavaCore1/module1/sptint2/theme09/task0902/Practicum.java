@@ -20,6 +20,25 @@ public class Practicum {
         // Если для указанного года нет курса, то выведите сообщение
         // "Для этого года у нас нет данных." и прекратите выполнение метода.
         // Иначе вызовите метод printPrices.
+
+        convert(amount, year);
+    }
+
+
+    public static void convert(int amount, int year) {
+        int result;
+        switch (year) {
+            case 1913:
+                result = amount / 884;
+                break;
+            case 1984:
+                result = amount / 337;
+                break;
+            default:
+                System.out.println("Для этого года у нас нет данных.");
+                return;
+        }
+         printPrices(year, result);
     }
 
     public static void printPrices(int year, double amount) {
@@ -31,32 +50,41 @@ public class Practicum {
         // Найдите все значения, у которых цена меньше переданной суммы.
         // Определите количество товара, которое можно приобрести на переданную сумму.
         // Напечатайте значение в формате «<название> — <количество> шт.».
+        HashMap<String, Integer> products = new HashMap<>();
+        for (String piece : prices.keySet()) {
+            if (prices.get(piece) < amount) {
+                products.put(piece, (int) (amount / prices.get(piece)));
+            }
+        }
+        for (String product : products.keySet()) {
+            System.out.println(product + " - " + products.get(product) + " шт.");
+        }
     }
 
     public static HashMap<String, Double> getPrices(int year) {
         HashMap<String, Double> prices = new HashMap<>();
 
         // Добавьте товары в prices в зависимости от значения переменной year.
-
-        // Цены 1913 года:
-        prices.put("Корова", 60.0);
-        prices.put("Курица", 0.60);
-        prices.put("Рубашка", 1.0);
-        prices.put("Шапка гусарская", 12.0);
-        prices.put("Гармонь", 7.50);
-        prices.put("Рояль", 200.0);
-
-        // Цены 1984 года:
-        prices.put("Банка сгущёнки", 0.55);
-        prices.put("Автомобиль «Запорожец»", 5600.0);
-        prices.put("Мороженое", 0.20);
-        prices.put("Шапка-ушанка цигейковая", 14.0);
-        prices.put("Шампанское «Советское»", 3.6);
-        prices.put("Карта мира", 2.54);
-        prices.put("Мотоцикл «Восход»", 450.0);
-        prices.put("Портативный кассетный магнитофон «Весна-202-1»", 195.0);
-        prices.put("Пальто осеннее", 100.0);
-
+        if (year == 1913) {
+            // Цены 1913 года:
+            prices.put("Корова", 60.0);
+            prices.put("Курица", 0.60);
+            prices.put("Рубашка", 1.0);
+            prices.put("Шапка гусарская", 12.0);
+            prices.put("Гармонь", 7.50);
+            prices.put("Рояль", 200.0);
+        } else  if (year == 1984) {
+            // Цены 1984 года:
+            prices.put("Банка сгущёнки", 0.55);
+            prices.put("Автомобиль «Запорожец»", 5600.0);
+            prices.put("Мороженое", 0.20);
+            prices.put("Шапка-ушанка цигейковая", 14.0);
+            prices.put("Шампанское «Советское»", 3.6);
+            prices.put("Карта мира", 2.54);
+            prices.put("Мотоцикл «Восход»", 450.0);
+            prices.put("Портативный кассетный магнитофон «Весна-202-1»", 195.0);
+            prices.put("Пальто осеннее", 100.0);
+        }
         return prices;
     }
 }
