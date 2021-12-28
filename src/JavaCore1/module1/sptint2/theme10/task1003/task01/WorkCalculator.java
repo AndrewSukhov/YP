@@ -2,23 +2,23 @@ package JavaCore1.module1.sptint2.theme10.task1003.task01;
 
 public class WorkCalculator {
 
-    public int workingHours = 8;
-    String workerName;
-    private double coefficient;
+    private int workingHours = 8;
+    private String workerName;
+    public double coefficient;
 
-    WorkCalculator(String newName) {
+    public WorkCalculator(String newName) {
         workerName = newName;
     }
 
-    private String getWorkerName() {
+    public String getWorkerName() {
         return workerName;
     }
 
-    int calculate(int workDays) {
+    public int calculate(int workDays) {
         return workDays * workingHours;
     }
 
-    double calculateWithCoefficient(int workDays) {
+    public double calculateWithCoefficient(int workDays) {
         return workDays * workingHours * coefficient;
     }
 }
