@@ -1,6 +1,6 @@
 package JavaCore1.module1.sptint2.theme10.task1006;
 
-class TezlaTruck {
+class TezlaTruck extends Automobile {
     protected double maxSpeedByDirt;
 
     public TezlaTruck() {
