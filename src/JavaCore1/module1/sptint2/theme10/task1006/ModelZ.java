@@ -1,6 +1,6 @@
 package JavaCore1.module1.sptint2.theme10.task1006;
 
-class ModelZ {
+class ModelZ extends TezlaCar{
     public ModelZ() {
         speed = 0;
         maxSpeed = 300;

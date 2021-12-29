@@ -1,6 +1,6 @@
 package JavaCore1.module1.sptint2.theme10.task1006;
 
-class Automobile {
+class Automobile extends Transport {
     public Automobile() {
         wheelsNumber = 4;
     }

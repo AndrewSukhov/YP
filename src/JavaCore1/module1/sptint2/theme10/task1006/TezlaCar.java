@@ -1,6 +1,6 @@
 package JavaCore1.module1.sptint2.theme10.task1006;
 
-class TezlaCar {
+class TezlaCar extends Automobile {
     protected double autoPilotMaxSpeed;
     protected double autoPilotAcceleration;
 
@@ -9,7 +9,7 @@ class TezlaCar {
         autoPilotAcceleration = 10;
     }
 
-    private void accelerateByAutopilot() {
+    protected void accelerateByAutopilot() {
         if (speed < autoPilotMaxSpeed) {
             speed += autoPilotAcceleration;
         }
