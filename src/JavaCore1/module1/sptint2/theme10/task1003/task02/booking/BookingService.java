@@ -1,6 +1,9 @@
 package JavaCore1.module1.sptint2.theme10.task1003.task02.booking;
 
-import JavaCore1.module1.sptint2.theme10.task1003.task02.BedAndBreakfast;... // импортируйте классы BedAndBreakfast и Scanner
+// импортируйте классы BedAndBreakfast и Scanner
+//import ru.yandex.practicum.model.BedAndBreakfast;
+import JavaCore1.module1.sptint2.theme10.task1003.task02.model.BedAndBreakfast;
+import java.util.Scanner;
 
 public class BookingService {
 
@@ -32,7 +35,7 @@ public class BookingService {
                     hotel.free();
                     break;
                 case 3:
-                    if (hotel.full) {
+                    if (hotel.isFull()) {
                         System.out.println("Больше нет мест¯\\_(ツ)_/¯");
                     } else {
                         System.out.println("Есть свободные номера!");
