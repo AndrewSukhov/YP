@@ -3,10 +3,10 @@ package JavaCore1.module1.sptint2.theme10.task1004;
 public class Practicum {
     public static void main(String[] args) {
         BankAccount bankAccount = new BankAccount();
-        ... // передайте в банкомат сумму на счету
-        System.out.println("Количество денег на счету - " + ... + " р.");
-        ... // вызовите метод вывода средств
-        System.out.println("Количество денег на счету - " + ... + " р.");
+        bankAccount.setMoneyAmount(1000); // передайте в банкомат сумму на счету
+        System.out.println("Количество денег на счету - " + bankAccount.getMoneyAmount() + " р.");
+        bankAccount.withdrawAll(); // вызовите метод вывода средств
+        System.out.println("Количество денег на счету - " + bankAccount.getMoneyAmount() + " р.");
     }
 }
 
@@ -15,6 +15,19 @@ class BankAccount {
 
     // допишите код методов
     // используйте параметр newMoneyAmount для установки нового значения
+
+    public long getMoneyAmount() {
+        return moneyAmount;
+    }
+
+    public void setMoneyAmount(long moneyAmount) {
+        this.moneyAmount = moneyAmount;
+    }
+
+    public void withdrawAll() {
+        System.out.println("Со счёта снято " + this.moneyAmount + " р.");
+        this.moneyAmount = 0;
+    }
 }
 /*
 Вам нужно снять наличные в банкомате, но он сломался и выводит только консоль с недописанным кодом.
