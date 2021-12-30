@@ -1,12 +1,12 @@
 package JavaCore1.module1.sptint2.theme10.task1008;
 
-class ISS extends Mir {
+class ISS extends Zarya {
     // доступ к изменению параметров запрещён
     public ISS(double initialOxygenLevel, double initialEnergyLevel, double initialFuel) {
-
+        super(initialOxygenLevel, initialEnergyLevel);
         // требуется увеличить уровень кислорода и энергетических резервов
-        oxygenLevel = initialOxygenLevel;
-        energyReserve = initialEnergyLevel;
+//        oxygenLevel = initialOxygenLevel;
+//        energyReserve = initialEnergyLevel;
 
         // доступ к изменению полей запрещён
         fuel = initialFuel;
@@ -22,6 +22,11 @@ class ISS extends Mir {
     }
 
     // получен доступ к переопределению метода стабилизации
+    void stabilize() {
+        stabilizeBySmallEngines();
+        stabilizeBySmallEngines();
+        stabilizeBySmallEngines();
+    }
 
     // доступ к изменению метода запрещён
     private void connectOxygenCableTo(Zvezda module) {
