@@ -18,7 +18,7 @@ public class Practicum {
         comment1.setText("Отличная статья!");
         comment1.setWhoLiked(new String[] { "Lera93", "934Vasya1" });
 
-        PostComment comment2 = new PostComment();K
+        PostComment comment2 = new PostComment();
         comment2.setText("Тема не раскрыта :(");
         comment2.setWhoLiked(new String[] { "Petya070707", "Masha90" });
 
