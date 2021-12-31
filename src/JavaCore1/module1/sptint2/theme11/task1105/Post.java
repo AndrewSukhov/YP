@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Post {
-    public String title; // заголовок
-    public String content; // содержание
-    public String[] tags; // теги
-    public ArrayList<PostComment> comments; //комментарии
+    private String title; // заголовок
+    private String content; // содержание
+    private String[] tags; // теги
+    private ArrayList<PostComment> comments; //комментарии
 
     @Override
     public String toString() {
