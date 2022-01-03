@@ -34,4 +34,5 @@ public class Post {
     public void setComments(ArrayList<PostComment> comments) {
         this.comments = comments;
     }
+
 }
