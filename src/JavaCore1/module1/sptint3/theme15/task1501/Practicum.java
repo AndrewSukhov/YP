@@ -13,14 +13,19 @@ public class Practicum {
 
         System.out.println("В лесу лето!");
         // создайте объект "летний лес с зайцами"
+        Forest summerForest = new Forest(hares);
+        Forest.setSeason("лето");
 
         System.out.println("Список зайцев:");
         // напечатайте список всех зайцев
+        summerForest.printHares();
         System.out.println("В лесу зима!");
         // поменяйте время года на зиму
         // напечатайте список всех зайцев
+        System.out.println("Список зайцев:");
+        Forest.setSeason("зима");
+        summerForest.printHares();
     }
-
 }
 /*
 Перед вами кусок кода компьютерной игры про Средневековье. В ней есть много разных локаций,
