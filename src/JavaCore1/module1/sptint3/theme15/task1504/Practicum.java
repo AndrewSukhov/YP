@@ -2,6 +2,9 @@ package JavaCore1.module1.sptint3.theme15.task1504;
 
 // импортируйте нужные пакеты
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Practicum {
 
     public static void main(String[] args) {
@@ -14,7 +17,12 @@ public class Practicum {
         tasks.add(new Task(TaskPriority.LOW, "Купить пылесос."));
 
         System.out.println("Задачи с наивысшим приоритетом на сегодня:");
-        ... // цикл for для поиска задач
+         // цикл for для поиска задач
+        for (Task task : tasks) {
+            if (task.getPriority() == TaskPriority.HIGH) {
+                System.out.println(task.getDescription());
+            }
+        }
     }
 }
 /*
