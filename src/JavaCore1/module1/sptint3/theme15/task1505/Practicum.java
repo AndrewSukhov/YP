@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Practicum {
     // объявите поле для ссылки на карту (англ. map link)
-    String mapLink = "https://recyclemap.ru/";
+    public static final String MAP_LINK = "https://recyclemap.ru/";
     public static final List<RecyclableMaterial> materials = getMaterials();
     public static final Map<MaterialType, String> containers = getContainers();
 
@@ -16,7 +16,6 @@ public class Practicum {
         Scanner scanner = new Scanner(System.in);
         printMenu();
 
-        String commandValue = scanner.nextLine();
         /* в зависимости от команды выполните следующие действия:
            map - вывести на экран ссылку на карту;
            recyclability - 1. напечатать сообщение "Введите код переработки:",
@@ -28,11 +27,25 @@ public class Practicum {
                        если вес меньше 10 кг, то коэффициент 10, иначе - 15,
                    4. вывести сообщение "Количество бонусных баллов: <баллы>."
         */
-
+        String commandValue = scanner.nextLine();
+        switch (ChatCommand.valueOf(commandValue)) {
+            case MAP -> System.out.println(MAP_LINK);
+            case RECYCLABILITY -> {
+                System.out.println("Введите код переработки:");
+                int code = scanner.nextInt();
+                isRecycled(code);
+            }
+            case BONUS -> {
+                System.out.println("Введите количество вторсырья, кг:");
+                int kg = scanner.nextInt();
+                int bonus = kg * (kg < 10 ? 10 : 15);
+                System.out.println("Количество бонусных баллов: " + bonus + ".");
+            }
+        }
     }
 
     // добавьте модификаторы в заголовок метода
-    ...  void isRecycled(int code) {
+    public static void isRecycled(int code) {
         for (RecyclableMaterial material : materials) {
             if (material.getCode() == code) {
                 System.out.print("Это " + material.getDescription() + ". ");
@@ -48,7 +61,7 @@ public class Practicum {
     }
 
     // добавьте модификаторы в заголовок метода
-    ... Map<MaterialType, String> getContainers() {
+    public static Map<MaterialType, String> getContainers() {
         Map<MaterialType, String> containers = new HashMap<>();
         containers.put(MaterialType.PLASTIC, "Пластик");
         containers.put(MaterialType.METAL, "Пластик");
@@ -101,7 +114,8 @@ public class Practicum {
     }
 }
 /*
-Компания «Собираем и перерабатываем» занимается переработкой вторсырья. Она планирует провести акцию: за каждый собранный килограмм вторсырья будут начисляться бонусы. 1 бонус = 1 рубль. Их можно потратить в магазинах партнёров.
+Компания «Собираем и перерабатываем» занимается переработкой вторсырья. Она планирует провести акцию:
+за каждый собранный килограмм вторсырья будут начисляться бонусы. 1 бонус = 1 рубль. Их можно потратить в магазинах партнёров.
 Для привлечения внимания к акции, компания решила создать чат-бот, в котором можно будет:
 
     посмотреть карту с пунктами приёма вторсырья,
