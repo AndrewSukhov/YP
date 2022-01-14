@@ -3,22 +3,22 @@ package JavaCore1.module1.sptint3.theme16.task1601;
 public class Practicum {
 
     public static void main(String[] args) {
-        Cat cat = new Cat();
+        Cat cat = new Cat("мяу");
         cat.catchMouse();
         cat.giveVoice();
 
-        Dog dog = new Dog();
+        Dog dog = new Dog("гав");
         dog.bringStick();
         dog.play();
 
-        Hamster hamster = new Hamster();
+        Hamster hamster = new Hamster("Хрр");
         hamster.hideFood();
         hamster.sleep();
 
-        Fish fish = new Fish();
+        Fish fish = new Fish("");
         fish.sleep();
 
-        Spider spider = new Spider();
+        Spider spider = new Spider("");
         System.out.println("У паука " + spider.getPawsCount() + " лапок.");
     }
 
