@@ -3,22 +3,22 @@ package JavaCore1.module1.sptint3.theme16.task1601;
 public class Practicum {
 
     public static void main(String[] args) {
-        Cat cat = new Cat("мяу");
+        Cat cat = new Cat();
         cat.catchMouse();
         cat.giveVoice();
 
-        Dog dog = new Dog("гав");
+        Dog dog = new Dog();
         dog.bringStick();
         dog.play();
 
-        Hamster hamster = new Hamster("Хрр");
+        Hamster hamster = new Hamster();
         hamster.hideFood();
         hamster.sleep();
 
-        Fish fish = new Fish("");
+        Fish fish = new Fish();
         fish.sleep();
 
-        Spider spider = new Spider("");
+        Spider spider = new Spider();
         System.out.println("У паука " + spider.getPawsCount() + " лапок.");
     }
 
@@ -32,6 +32,10 @@ public class Practicum {
     спать sleep() (при вызове этого метода ваша программа должна выводить слово Сплю),
     играть play() (программа должна вывести Играю)
     издавать какой-то звук giveVoice() (выведите любой правдоподобный звук на ваше усмотрение).
+
+Дополнительно к базовым возможностям, кошка может поймать мышку catchMouse() (в этом случае выведите Поймала мышку!),
+хомяк — спрятать еду hideFood() (Вся еда — в щёчках!), а собака — принести палку bringStick()
+(Принёс палочку, как хороший мальчик!).
 
     Чтобы объявить абстрактный класс, используйте ключевое слово abstract перед объявлением класса — public abstract class Pet.
     Чтобы указать, что классы наследуется от абстрактного, используйте ключевое слово extends и название
