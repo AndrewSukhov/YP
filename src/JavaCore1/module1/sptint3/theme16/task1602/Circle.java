@@ -1,6 +1,6 @@
 package JavaCore1.module1.sptint3.theme16.task1602;
 
-public class Circle {
+public class Circle implements Figure {
     // Радиус круга
     private final double r;
 
