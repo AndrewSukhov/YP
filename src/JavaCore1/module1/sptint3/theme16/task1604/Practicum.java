@@ -23,19 +23,18 @@ public class Practicum {
         getPhone(type, number).makeCall(friendNumber);
     }
 
-    public static ... getPhone(int type, String number) {
-        if (...) {
+    public static Phone getPhone(int type, String number) {
+        if (type == 1) {
             // Если выбран стационарный телефон, создайте объект класса CellularPhone
             return new CellularPhone(number);
-        } else if (...) {
+        } else if (type == 2) {
             // Если выбран мобильный телефон, создайте объект класса MobilePhone
             return new MobilePhone(number);
         } else {
             // Иначе создайте экземпляр класса Smartphone
-            ...
+            return new Smartphone(number);
         }
     }
-
 }
 /*
 Помогите пользователю вашего приложения связаться с другом через виртуальную АТС. Допишите модуль АТС,
