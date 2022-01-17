@@ -20,14 +20,11 @@ public class SocialNetworkContact extends Contact {
     }
 
     // Метод sendMessage переопределяет метод базового класса
-        ...
-
+    @Override
     public void sendMessage() {
         System.out.println("Отправим забавный стикер одногруппнику в соцсети " + socialNetwork + ", имя пользователя " + username);
     }
-
-        ...
-
+    @Override
     public void print() {
         System.out.println("Социальная сеть: " + socialNetwork);
         System.out.println("Имя пользователя: " + username);

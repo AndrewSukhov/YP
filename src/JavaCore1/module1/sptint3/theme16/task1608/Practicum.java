@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Practicum {
 
     // Дополните объявление поля friendsContactBook, которое будет хранить в себе список номеров телефонов друзей
-    private static ContactBook... friendsContactBook = ...
-            // Напишите объявления полей colleaguesContactBook, classmatesContactBook и relativesContactBook,
-            // которые будут хранить списки электронных адресов, соцсетей и почтовых адресов соответственно
-            ...
-
+    private static ContactBook<Contact> friendsContactBook = new ContactBook<>();
+    // Напишите объявления полей colleaguesContactBook, classmatesContactBook и relativesContactBook,
+    // которые будут хранить списки электронных адресов, соцсетей и почтовых адресов соответственно
+    private static ContactBook<Contact> colleaguesContactBook = new ContactBook<>();
+    private static ContactBook<Contact> classmatesContactBook = new ContactBook<>();
+    private static ContactBook<Contact> relativesContactBook = new ContactBook<>();
 
     public static void main(String[] args) {
         fillBooks();
