@@ -13,6 +13,15 @@ public class Practicum {
         int userGuess = -1;
 
         // Считывайте числа от пользователя пока не найдёте число, равное target
+        while (target != userGuess) {
+            userGuess = s.nextInt();
+            if (userGuess < target) {
+                System.out.println("Ваше число меньше");
+            } else if (userGuess > target) {
+                System.out.println("«Ваше число больше»");
+            }
+        }
+        System.out.println("Правильный ответ");
     }
 }
 /*
