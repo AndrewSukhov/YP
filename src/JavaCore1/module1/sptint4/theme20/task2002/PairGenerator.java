@@ -15,14 +15,15 @@ public class PairGenerator {
 
     // Укажите правильный тип, возвращаемый этой функцией. Вам нужно преобразовать список незнакомцев в
     // набор пар, т.е. в список, состоящий из других списков.
-    public ... splitByPairs(List<Stranger> strangers) {
+    public List<List<Stranger>> splitByPairs(List<Stranger> strangers) {
 
         // Укажите тип ещё раз.
-        ... pairs = new ArrayList<>();
+        List<List<Stranger>> pairs = new ArrayList<>();
         while (!strangers.isEmpty()) {
 
             List<Stranger> pair = getRandomPair(strangers);
             // Добавьте новый элемент в набор пар.
+            pairs.add(pair);
         }
 
         return pairs;
@@ -45,7 +46,10 @@ public class PairGenerator {
 
 				/* Осталось только удалить двух найденных незнакомцев из списка strangers,
            а затем вернуть их в качестве результата! */
-        ...
+        List<Stranger> strangerList = List.of(strangerOne, strangerTwo);
+        strangers.removeAll(strangerList);
+
+        return strangerList;
     }
 }
 /*
