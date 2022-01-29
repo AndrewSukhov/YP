@@ -15,12 +15,15 @@ public class HandMadeArrayList<T> {
      */
     public void add(T newElement) {
         // Допишите проверку
-        if (... == ...) {
+        if (size == elements.length) {
             grow();
         }
 
 				/* Допишите код, который добавит очередной элемент в массив
            и увеличит размер массива на единицу.*/
+
+        elements[size] = newElement;
+        size++;
     }
 
     public T get(int index) {
@@ -39,7 +42,9 @@ public class HandMadeArrayList<T> {
 
         // Допишите цикл, который копирует все элементы из массива elements в новый массив newArray
         // Копируем элементы из старого массива в новый
-
+        for (int i = 0; i < elements.length; i++) {
+            newArray[i] = elements[i];
+        }
 
         // Возвращаемый новый массив
         this.elements = newArray;
