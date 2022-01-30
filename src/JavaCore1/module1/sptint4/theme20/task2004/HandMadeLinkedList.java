@@ -49,10 +49,22 @@ public class HandMadeLinkedList<T> {
 
     public void addLast(T element) {
         // Реализуйте метод
+        final Node<T> oldTail = tail;
+        final Node<T> newNode = new Node<>(oldTail, element, null);
+        tail = newNode;
+        if (oldTail == null)
+            head = newNode;
+        else
+            oldTail.next = oldTail;
+        size++;
     }
 
     public T getLast() {
         // Реализуйте метод
+        final Node<T> curTail = tail;
+        if (curTail == null)
+            throw  new NoSuchElementException();
+        return tail.data;
     }
 
     public int size() {
