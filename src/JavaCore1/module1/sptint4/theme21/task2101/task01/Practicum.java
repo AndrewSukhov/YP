@@ -21,6 +21,13 @@ public class Practicum {
 
     public static Map<String, Integer> assignSeats(List<String> passengerNames) {
         // Тут нужно написать код, который будет распределять места в самолёте ✈️
+        Map<String, Integer> seats = new HashMap<>();
+        int seat = 1;
+        for (String passengerName : passengerNames) {
+            seats.put(passengerName, seat);
+            seat++;
+        }
+        return  seats;
     }
 }
 /*
