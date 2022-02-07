@@ -29,6 +29,8 @@ public class Practicum {
     private void newOrder(String clientName) {
         // Сохраните новый заказ в хеш-таблицу. При обновлении счётчика заказов
         // не забудьте учесть заказы, которые уже были сделаны ранее.
+        int count = orders.getOrDefault(clientName, 0);
+        orders.put(clientName, ++count);
     }
 
     private void printStatistics() {
@@ -38,6 +40,12 @@ public class Practicum {
         //     Заказов от Микеланджело: 15
         //     Заказов от Леонардо: 4
         //     Всего заказов: 19
+        int sum = 0;
+        for (Map.Entry<String, Integer> order : orders.entrySet()) {
+            System.out.println("Заказов от " + order.getKey() + ": " + order.getValue());
+            sum += order.getValue();
+        }
+        System.out.println("Всего заказов: " + sum);
     }
 }
 /*
