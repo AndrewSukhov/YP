@@ -1,18 +1,24 @@
 package JavaCore1.module1.sptint4.theme21.task2103.task02;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Practicum {
     public static void main(String[] args) {
         List<String> actorsList = new ArrayList<>();
         fillActors(actorsList);
+        Map<String, Integer> actorsMap = new LinkedHashMap<>();
 
-        ...// заполните хэш-таблицу
+        // заполните хэш-таблицу
+        for (String actor: actorsList) {
+            actorsMap.put(actor, actorsMap.getOrDefault(actor, 0) + 1);
+        }
 
-        for (...) {
-            String actor = ...
-            int filmsCount = ...
+        for (Map.Entry<String, Integer> entry : actorsMap.entrySet()) {
+            String actor = entry.getKey();
+            int filmsCount = entry.getValue();
             System.out.println(actor + " снялся в " + filmsCount + " фильмах");
         }
     }
