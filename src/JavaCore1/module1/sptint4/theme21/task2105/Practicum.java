@@ -1,5 +1,6 @@
 package JavaCore1.module1.sptint4.theme21.task2105;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -20,15 +21,15 @@ class Practicum {
 
     public static void main(String[] args) {
         // переменная uniquePurchases должна содержать множество уникальных товаров
-        ... uniquePurchases = ...
+        Set<String> uniquePurchases = findUniquePurchases(allPurchases);
 
         // допишите вывод количества уникальных товаров
-        System.out.println( "За месяц было куплено " + ... + " уникальных товаров.");
+        System.out.println( "За месяц было куплено " + uniquePurchases.size() + " уникальных товаров.");
     }
 
     // реализуйте этот метод
-    public static ... findUniquePurchases(List<String> allPurchases) {
-        ...
+    public static Set<String> findUniquePurchases(List<String> allPurchases) {
+        return new HashSet<>(allPurchases);
     }
 }
 /*
