@@ -1,15 +1,16 @@
 package JavaCore1.module1.sptint4.theme21.task2104;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 class Practicum {
-    private static List<User> users = new ArrayList<>();
+    private static Map<Long, User> users = new HashMap<>();
 
     public static void main(String[] args) {
         // создадим 10 миллион пользователей
         for (long i = 1; i <= 1_000_000L; i++) {
-            users.add(new User(i, "Имя " + i));
+            users.put(i, new User(i, "Имя " + i));
         }
 
         final long startTime = System.nanoTime();
@@ -21,13 +22,7 @@ class Practicum {
     }
 
     private static User findUser(Long userId) {
-        for (User user : users) {
-            if (user.id.equals(userId)) {
-                return user;
-            }
-        }
-
-        return null;
+        return users.getOrDefault(userId, null);
     }
 
     static class User {
@@ -41,6 +36,19 @@ class Practicum {
 
         public String toString() {
             return "User{id=" + id + ", name='" + name + "'}";
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            User user = (User) o;
+            return Objects.equals(id, user.id) && Objects.equals(name, user.name);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(id, name);
         }
     }
 }
