@@ -3,6 +3,8 @@ package JavaCore1.module1.sptint4.theme21.task2106;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.TreeSet;
+import java.util.Comparator;
 
 public class Practicum {
     private static Set<Letter> letters = new LinkedHashSet<>();
@@ -26,11 +28,15 @@ public class Practicum {
         }
     }
 
+
     private static void printOrderedByDateReceived(Set<Letter> letters) {
         System.out.println("Все письма с сортировкой по дате получения: ");
-
         // реализуйте этот метод
-        ...
+        Set<Letter> lettersSet = new TreeSet<>(Comparator.comparing(l -> l.dateReceived));
+        lettersSet.addAll(letters);
+        for (Letter letter : lettersSet) {
+            System.out.println("    * Письмо от " + letter.authorName + " поступило " + letter.dateReceived);
+        }
     }
 
     static class Letter {
