@@ -2,7 +2,7 @@ package JavaCore2.module2.sprint5.theme01.task02.task0201;
 
 public class SubstringFunctions {
     public boolean startsWith(String initial, String other) {
-        ... // реализуйте метод
+        return initial.indexOf(other) == 0;
     }
 }
 /*
