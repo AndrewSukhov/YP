@@ -2,7 +2,10 @@ package JavaCore2.module2.sprint5.theme01.task0102.task02;
 
 public class SubstringFunctions {
     public boolean endsWith(String initial, String other) {
-
+        int otherLength = other.length();
+        int entry =  initial.lastIndexOf(other);
+        int initialLength = initial.length();
+        return initialLength - otherLength == entry;
     }
 }
 /*
