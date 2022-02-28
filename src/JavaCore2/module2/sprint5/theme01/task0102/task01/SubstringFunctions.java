@@ -1,4 +1,4 @@
-package JavaCore2.module2.sprint5.theme01.task02.task0201;
+package JavaCore2.module2.sprint5.theme01.task0102.task01;
 
 public class SubstringFunctions {
     public boolean startsWith(String initial, String other) {
