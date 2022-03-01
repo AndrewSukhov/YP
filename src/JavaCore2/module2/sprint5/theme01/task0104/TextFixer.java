@@ -7,8 +7,13 @@ public class TextFixer {
     }
 
     public String fixText(String text) {
-        // Реализуйте этот метод
-        return text;
+        return capitalize(
+                text
+                .trim()
+                .replace("„", "«")
+                .replace("“", "»")
+                .replace("цевилизаций", "цивилизаций")
+        );
     }
 
     public static void main(String[] args) {
