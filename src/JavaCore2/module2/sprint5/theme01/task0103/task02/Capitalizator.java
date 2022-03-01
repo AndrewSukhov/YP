@@ -2,7 +2,7 @@ package JavaCore2.module2.sprint5.theme01.task0103.task02;
 
 public class Capitalizator {
     public String capitalize(String str) {
-
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 }
 /*
