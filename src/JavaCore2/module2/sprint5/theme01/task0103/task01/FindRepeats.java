@@ -2,7 +2,12 @@ package JavaCore2.module2.sprint5.theme01.task0103.task01;
 
 public class FindRepeats {
     int numberOfRepeats(String text, String substring) {
-
+        int count = 0;
+        while (text.contains(substring)) {
+            count++;
+            text = text.substring(text.indexOf(substring) + substring.length());
+        }
+        return count;
     }
 }
 /*Команда Ctrl/Alt + F (⌘ + F для Mac) — пожалуй, самый известный пример организации
