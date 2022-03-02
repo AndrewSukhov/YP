@@ -2,7 +2,16 @@ package JavaCore2.module2.sprint5.theme01.task0105.task04;
 
 public class Palindrome {
     public boolean isPalindromeLine(String str) {
-
+        StringBuilder word = new StringBuilder(str.toLowerCase());
+        for (int i = 0; i < word.length(); i++) {
+            if (word.substring(i, i + 1).isBlank()) {
+                word.deleteCharAt(i--);
+            }
+        }
+        StringBuilder reversedWord = new StringBuilder(word);
+        reversedWord.reverse();
+        System.out.println(word);
+        return reversedWord.toString().equals(word.toString());
     }
 }
 /*
