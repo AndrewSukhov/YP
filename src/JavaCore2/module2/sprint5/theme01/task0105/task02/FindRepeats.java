@@ -2,10 +2,11 @@ package JavaCore2.module2.sprint5.theme01.task0105.task02;
 
 public class FindRepeats {
     int numberOfRepeats(String text, String substring) {
+        StringBuilder sb = new StringBuilder(text);
         int count = 0;
-        while (text.contains(substring)) {
+        while (sb.indexOf(substring) != -1) {
             count++;
-            text = text.substring(text.indexOf(substring) + substring.length());
+            sb.delete(0, substring.length());
         }
         return count;
     }
