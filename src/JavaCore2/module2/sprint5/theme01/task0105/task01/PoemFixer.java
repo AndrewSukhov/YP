@@ -15,7 +15,13 @@ public class PoemFixer {
     }
 
     public String fixPoem(String[] poem) {
-        ... // допишите код
+        StringBuilder fixedPoem = new StringBuilder();
+        for (var line: poem) {
+            if (!line.isBlank()){
+                fixedPoem.append(line.trim()).append("\n");
+            }
+        }
+        return fixedPoem.toString();
     }
 
     public static void main(String[] args) {
