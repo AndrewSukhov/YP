@@ -3,6 +3,8 @@ package JavaCore2.module2.sprint5.theme01.task0105.task03;
 public class Palindrome {
 
     public boolean isPalindromeWord(String str) {
+        StringBuilder word = new StringBuilder(str);
+        return str.equals(word.reverse().toString());
     }
 }
 /*
