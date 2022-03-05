@@ -27,10 +27,18 @@ public class Grades {
 
     // grades - строка вида "имя,фамилия,предмет,оценка;имя,фамилия,предмет,оценка;"
     public void gradeBeautifier(String grades) {
-			... // реализуйте метод здесь
+        String[] tmpGradesArray = grades.split(";");
+        String[][] gradesArray = new String[tmpGradesArray.length][];
+        for (String grade : tmpGradesArray) {
+            gradesArray[0] = grade.split(",");
+                System.out.println(
+                        capitalize(gradesArray[0][0])
+                        + " " + capitalize(gradesArray[0][1])
+                        + " " + gradesArray[0][2]
+                        + " — " + gradeToString(gradesArray[0][3])
+                        );
+        }
     }
-
-
 }
 /*
 Настройте программу по учёту школьных оценок. На вход подаётся строка, один элемент которой
