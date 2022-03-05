@@ -20,11 +20,27 @@ public class GradesReversed {
                 return "1";
         }
     }
-
+/*    public static void main(String[] args) {
+        GradesReversed g = new GradesReversed();
+        System.out.println(g.serializeGrades(
+                new String[]{"Вероника Чехова физика — Безупречно",
+                "Анна Строкова математика — Потрясающе",
+                "Иван Петров геометрия — Безупречно"}
+        ));
+    }*/
     public String serializeGrades(String[] grades) {
-
+        String[] strings;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < grades.length; i++) {
+            strings = grades[i].split(" ");
+                result.append(String.join(",", strings[0].toLowerCase(),
+                        strings[1].toLowerCase(), strings[2].toUpperCase(),
+                        gradeStringToInt(strings[4])));
+                if (i != grades.length - 1)
+                    result.append(";");
+        }
+        return result.toString();
     }
-
 }
 /*
 Программа по учёту оценок сломалась, но в нашей части системы сохранились бэкапы!
