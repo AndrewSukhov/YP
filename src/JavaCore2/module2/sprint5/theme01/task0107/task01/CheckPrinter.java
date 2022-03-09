@@ -3,7 +3,8 @@ package JavaCore2.module2.sprint5.theme01.task0107.task01;
 public class CheckPrinter {
     public void printCheck(String[] items) {
         for (String item: items) {
-
+            String[] strings = item.split(", ");
+            System.out.printf("%-10s, %-15s, %-23s", strings[0], strings[1], strings[2]);
         }
     }
 }
