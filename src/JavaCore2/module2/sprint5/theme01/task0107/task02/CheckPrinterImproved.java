@@ -17,42 +17,21 @@ public class CheckPrinterImproved {
         p.printCheck(new String[]{"Пицца, 1 шт., 310.50", "Чай, 2 шт., 113.30", "Печенье, 1 уп., 75.75"});
     }
 
-    /*
-    Доделать правильный вывод. Сейчас он получается таким:
-    Пицца    ,1 шт.  ,310.50
-    Чай      ,2 шт.  ,113.30
-    Печенье  ,1 уп.  ,75.75
-
-    Но валидатор пропустил следующее решение:
-    public void printCheck(String[] items) {
-         String p = "Пицца, 1 шт., 310.50";
-        String t = "Чай, 2 шт., 113.30";
-        String c = "Печенье, 1 уп., 75.75";
-        String[] i = p.split(", ");
-        for (String item: items) {
-            System.out.printf("%25s", item);
-        }
-    }
-    или такое
-    System.out.printf("%-10s,  %-7s,  %-8s", k[0], k[1], k[2]);
-    * */
     public void printCheck(String[] items) {
         String[] names = new String[items.length];
         String[] quantity = new String[items.length];
         String[] price = new String[items.length];
         for (int i = 0; i < items.length; i++) {
             String[] strings = items[i].split(", ");
-            names[i] = strings[0];
-            quantity[i] = strings[1];
+            names[i] = strings[0] + ",";
+            quantity[i] = strings[1] + ",";
             price[i] = strings[2];
         }
         int first = findMaxLength(names) + 2;
         int second = findMaxLength(quantity) + 2;
         for (int i = 0; i < names.length; i++) {
-//            System.out.printf("%-" + first + "s," + "%-" + second + "s," + "%s\n", names[i], quantity[i], price[i]);
-            System.out.printf("%-10s,  %-7s,  %-8s", names[i], quantity[i], price[i]);
+            System.out.printf("%-" + first + "s" + "%-" + second + "s" + "%s\n", names[i], quantity[i], price[i]);
         }
-
     }
 }
 /*
