@@ -1,6 +1,6 @@
 package JavaCore2.module2.sprint5.theme02.task0204;
 
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class StackTraceExceptions {
     public static void main(String[] args) {
@@ -21,10 +21,14 @@ public class StackTraceExceptions {
         }
     }
 
-    private static void printException(final String message) {
-        System.out.println(message);
+    private static void printException(final String message, final Throwable exception) {
+        System.out.print(message + ": ");
+        if (exception.getMessage() != null)
+        System.out.print(exception.getMessage());
+        else
+            exception.printStackTrace();
     }
-}
+}*/
 /*
 Программа по преобразованию строки в целое число немного изменилась. Теперь при исключении в блоках catch
 происходит вызов метода printException(). Сейчас этот метод работает неправильно — вам нужно доработать его реализацию.
