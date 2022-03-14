@@ -1,6 +1,6 @@
 package JavaCore2.module2.sprint5.theme02.task0203;
 
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class Exceptions {
     public static void main(String[] args) {
@@ -9,6 +9,7 @@ public class Exceptions {
         final String inputValue = scanner.next();
         try {
             final int parsedValue = IntegerParser.parseInt(inputValue);
+            System.out.println(parsedValue);
         } catch (NullStringException | EmptyStringException e) {
             System.out.println("Введена пустая строка.");
         } catch (StringNotNumberException e) {
@@ -18,9 +19,8 @@ public class Exceptions {
         } catch (StringIsTooSmallNumberException e) {
             System.out.println("Введённое число слишком маленькое.");
         }
-        System.out.println(parsedValue);
     }
-}
+}*/
 
 /*
 Класс IntegerParser преобразует строку в целое число.
