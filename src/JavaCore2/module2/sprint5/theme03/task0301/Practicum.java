@@ -20,7 +20,7 @@ public class Practicum {
             System.out.println("Введите путь к файлу/директории: ");
             String enteredPath = scanner.nextLine();
             // Объявите переменную path с типом Path.
-
+            Path path = Paths.get(enteredPath);
             // Выполните действия в зависимости от введённой команды.
             switch (command) {
                 case "exit":
@@ -29,6 +29,9 @@ public class Practicum {
                 case "ls":
                     try {
                         // выведите список элементов директории
+                        for (Path file : Files.list(path).collect(Collectors.toList())) {
+                            System.out.println(file);
+                        }
                     }
                     catch (IOException e) {
                         System.out.println("Произошла ошибка при запросе содержимого директории.");
@@ -39,6 +42,7 @@ public class Practicum {
                 case "mkdir":
                     try {
                         // создайте директорию
+                        Files.createDirectory(path);
                     }
                     catch (IOException e) {
                         System.out.println("Произошла ошибка при создании директории.");
@@ -48,6 +52,7 @@ public class Practicum {
                 case "touch":
                     try {
                         // создайте файл
+                        Files.createFile(path);
                     }
                     catch (IOException e) {
                         System.out.println("Произошла ошибка при создании файла.");
@@ -60,6 +65,7 @@ public class Practicum {
 
                     try {
                         // переименуйте файл
+                        Files.move(path, path.resolveSibling(newName), StandardCopyOption.REPLACE_EXISTING);
                     }
                     catch (IOException e) {
                         System.out.println("Произошла ошибка при переименовании файла/директории.");
@@ -70,6 +76,7 @@ public class Practicum {
                     try {
                         if (!Files.isDirectory(path)) {
                             // удалите файл
+                            Files.deleteIfExists(path);
                         }
                         else {
                             System.out.println("С помощью этой команды можно удалить только файл!");
