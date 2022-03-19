@@ -17,13 +17,13 @@ class Practicum {
             } else if ("add".equals(action)) {
                 try {
                     add(storage);
-                } catch (TooMuchPizzaException e) {
+                } catch (TooMuchPizzaException | IncorrectInputException e) {
                     System.out.println("Невозможно добавить такое количество пиццы на склад");
                 }
             } else if ("take".equals(action)) {
                 try {
                     take(storage);
-                } catch (NotEnoughPizzaException e) {
+                } catch (NotEnoughPizzaException | IncorrectInputException e) {
                     System.out.println("Недостаточное количество пиццы не складе");
                 }
             }
@@ -31,20 +31,20 @@ class Practicum {
         }
     }
 
-    public static void add(final PizzaStorage storage) {
+    public static void add(final PizzaStorage storage) throws IncorrectInputException, TooMuchPizzaException {
         try {
             final int count = getPositiveNumber("Введите количество пиццы для добавления => ");
             storage.addPizza(count);
-        } catch (IncorrectInputException exception) {
+        } catch (IncorrectInputException | TooMuchPizzaException exception) {
             System.out.println("Произошла ошибка: " + exception.getMessage());
         }
     }
 
-    public static void take(final PizzaStorage storage) {
+    public static void take(final PizzaStorage storage) throws IncorrectInputException, NotEnoughPizzaException{
         try {
             final int count = getPositiveNumber("Введите количество пиццы для удаления => ");
             storage.takePizza(count);
-        } catch (IncorrectInputException exception) {
+        } catch (IncorrectInputException | NotEnoughPizzaException exception) {
             System.out.println("Произошла ошибка: " + exception.getMessage());
         }
     }
