@@ -1,12 +1,15 @@
 package JavaCore2.module2.sprint5.theme02.task0207;
 
 import JavaCore2.module2.sprint5.theme02.task0207.exceptions.ValidateException;
+import JavaCore2.module2.sprint5.theme02.task0207.exceptions.ValidateNameException;
+import JavaCore2.module2.sprint5.theme02.task0207.exceptions.ValidatePasswordException;
 import JavaCore2.module2.sprint5.theme02.task0207.storage.PasswordMemoryStorage;
 import JavaCore2.module2.sprint5.theme02.task0207.storage.PasswordStorage;
+import JavaCore2.module2.sprint5.theme02.task0207.validators.NameValidator;
 import JavaCore2.module2.sprint5.theme02.task0207.validators.PasswordLengthValidator;
 import JavaCore2.module2.sprint5.theme02.task0207.validators.PasswordStrengthValidator;
 import JavaCore2.module2.sprint5.theme02.task0207.validators.Validator;
-
+// чтобы пропустил валидатор на ЯП, убрать импорты NameValidator ValidatePasswordException ValidateNameException
 import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
@@ -18,7 +21,7 @@ class Practicum {
             new PasswordLengthValidator(5), new PasswordStrengthValidator()
     );
 
-    private static final List<Validator> nameValidators = List.of(); // поработайте со списком
+    private static final List<Validator> nameValidators = List.of(new NameValidator()); // поработайте со списком
 
     public static void main(String[] args) {
         loop();
@@ -58,10 +61,14 @@ class Practicum {
             final String password = scanner.nextLine();
             checkValidatorRules(passwordValidators, password);
             storage.store(name, password);
+        } catch (ValidateNameException e) {
+            System.out.println("Ошибка валидации имени: " + e.getMessage());
         } catch (ValidateException e) {
             System.out.println("Ошибка валидации: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ошибка работы с хранилищем: " + e.getMessage());
+        } finally {
+            storage.close();
         }
     }
 
@@ -76,10 +83,14 @@ class Practicum {
             checkValidatorRules(nameValidators, name);
             final String password = storage.get(name);
             System.out.println(String.format("Пароль пользователя %s = %s", name, password));
+        } catch (ValidatePasswordException e) {
+            System.out.println("Ошибка валидации пароля: " + e.getMessage());
         } catch (ValidateException e) {
             System.out.println("Ошибка валидации: " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ошибка работы с хранилищем: " + e.getMessage());
+        } finally {
+            storage.close();
         }
     }
 
