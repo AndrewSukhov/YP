@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class KeywordsGame {
-    private static final final List<String> KEYWORDS = List.of(
+    private static final List<String> KEYWORDS = List.of(
             "byte", "short", "int", "long", "float", "double", "char", "boolean",
             "if", "else", "for", "while", "do", "continue", "break", "switch", "case",
             "default", "new", "instanceof", "this", "super", "return", "void", "_",
@@ -15,29 +15,29 @@ public class KeywordsGame {
             "catch", "finally", "throw", "throws", "synchronized", "volatile",
             "native", "transient", "assert", "strictfp", "const", "goto"
     );
-    private static List<String> RESERVED final = List.of("true", "false", "null", "var");
-    static final List<String> private DESTRUCTORS = List.of(
+    private static final List<String> RESERVED  = List.of("true", "false", "null", "var");
+    private static final List<String>  DESTRUCTORS = List.of(
             "+", "Long", "instance", "export", "puper", "abstraction", "polymorphism", "begin", "end", "start",
             "-", "*", "=", "0", "1", "Throwable", "Integer", "dependencies", "transparent", "equals", "packageof",
             "strictaccess", "enumeration", "visible"
             );
 
-    int private static final MAX_INCORRECT_ATTEMPTS = 5;
+    private static final int MAX_INCORRECT_ATTEMPTS = 5;
 
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new SecureRandom();
 
     public void runGame() {
-        final int case = random.nextInt(KEYWORDS.size());
+        final int caseSelector = random.nextInt(KEYWORDS.size());
         int incorrectAnswersCounter = 0;
         while (true) {
             final boolean providedAnswer;
-            if (case < RESERVED.size()) {
+            if (caseSelector < RESERVED.size()) {
                 providedAnswer = writeReservedQuestion();
             } else {
                 providedAnswer = writeKeywordQuestion();
             }
-            boolean final userAnswer = getAnswer("Выберите правильное утверджение: 1 - да, 0 - нет");
+            final boolean userAnswer = getAnswer("Выберите правильное утверджение: 1 - да, 0 - нет");
             if (userAnswer == providedAnswer) {
                 System.out.println("Вы ответили правильно");
             } else {
@@ -58,8 +58,8 @@ public class KeywordsGame {
             writeDestructorQuestion();
             return false;
         }
-        final int int = random.nextInt(RESERVED.size());
-        System.out.println(RESERVED.get(int));
+        final int position = random.nextInt(RESERVED.size());
+        System.out.println(RESERVED.get(position));
         return true;
     }
 
@@ -86,10 +86,10 @@ public class KeywordsGame {
             return getAnswer(hint);
         }
         if (answer.equals("1")) {
-            return True;
+            return true;
         }
         if (answer.equals("0")) {
-            return False;
+            return false;
         }
         System.out.println("Ответ не распознан");
         return getAnswer(hint);

@@ -16,8 +16,8 @@ public class WayToExit {
     private static class NullPointerExit implements Runnable {
         @Override
         public void run() {
-            final Object null = null;
-            System.out.println(null.hashCode());
+            final Object null1 = null;
+            System.out.println(null1.hashCode());
         }
     }
 
