@@ -1,7 +1,8 @@
 package JavaCore2.module2.sprint6.theme6.task0601;
 
 import java.time.LocalDateTime;
-import //добавьте недостающий импорт
+import java.util.LinkedList;
+import java.util.List;
 
 interface StringsSaverConfig {
     // как нужно преобразовать сохраняемую строку
@@ -38,10 +39,19 @@ class StringsSaver {
 public class Practicum {
 
     public static void main(String[] args) {
-        StringsSaverConfig config = ...;
         // тут ваш анонимный класс
+        StringsSaverConfig config = new StringsSaverConfig() {
 
+            @Override
+            public String transform(String line) {
+                return null;
+            }
 
+            @Override
+            public void onSave(String line) {
+
+            }
+        };
 
 
         StringsSaver saver = new StringsSaver(config);
