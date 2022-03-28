@@ -6,32 +6,53 @@ import java.util.function.Predicate;
 
 class FilteredSaver {
     // ваши поля
+    List<String> saved = new LinkedList<>();
+    public List<Predicate<String>> predicateList= new ArrayList<>();
+    private Consumer<String> onSaveListener;
 
-    public void setOnSaveListener(...) {
-        // ...
+    public void setOnSaveListener(Consumer<String> onSaveListener) {
+        this.onSaveListener = onSaveListener;
     }
 
-    public void addFilter(...) {
-        // ...
+    public void addFilter(Predicate<String> predicate) {
+        predicateList.add(predicate);
     }
 
     public void save(String line) {
-        // ...
+        if(predicateList.get(0).test(line) && predicateList.get(1).test(line)) {
+            saved.add(line);
+            onSaveListener.accept(line);
+        }
     }
 
     public List<String> getSaved() {
-        // ...
+        return saved;
     }
 }
 
 public class Practicum {
 
-
     public static void main(String[] args) {
         FilteredSaver saver = new FilteredSaver();
-        saver.setOnSaveListener(...);
-        saver.addFilter(...);
-        saver.addFilter(...);
+        saver.setOnSaveListener(new Consumer<String>() {
+            @Override
+            public void accept(String value) {
+                System.out.println("СОХРАНЕНО: " + value);
+            }
+        });
+
+        saver.addFilter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return s.contains("ВАЖНО");
+            }
+        });
+        saver.addFilter(new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                return (s.charAt(s.length() - 1) == '!');
+            }
+        });
 
         saver.save("Привет!");  // не сохранится
         saver.save("ВАЖНО - это важное слово"); // не сохранится
@@ -58,5 +79,4 @@ filter на запись сообщения в хранилище. Реализ�
 Реакции на сохранение и фильтры нужно описать в анонимных классах.
 В методе save проверьте, что переданная строка удовлетворяет каждому критерию.
 Если не удовлетворяет хотя бы одному — выходите из метода без сохранения и без вызова реакции на сохранение.
-
  */
