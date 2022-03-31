@@ -39,9 +39,9 @@ public class Practicum {
 
     public static void main(String[] args) {
         FilteredSaver saver = new FilteredSaver();
-        saver.setOnSaveListener(...);
-        saver.addFilter(...);
-        saver.addFilter(...);
+        saver.setOnSaveListener(value -> System.out.println("СОХРАНЕНО: " + value));
+        saver.addFilter(s -> s.contains("ВАЖНО"));
+        saver.addFilter(s -> (s.charAt(s.length() - 1) == '!'));
 
         saver.save("Привет!");  // не сохранится
         saver.save("ВАЖНО - это важное слово"); // не сохранится
