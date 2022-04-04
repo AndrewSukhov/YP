@@ -27,25 +27,25 @@ class Practicum {
 
     private static void printGap(LocalDateTime start, LocalDateTime finish) {
         // используйте паттерн "dd.MM.yyyy, HH:mm"
-        DateTimeFormatter formatter = ...;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy, HH:mm");
 
         System.out.println("Вход в гиперпространство:");
         // вывод должен быть в корректном формате
-        System.out.println(...);
+        System.out.println(start.format(formatter));
         System.out.println("Выход из гиперпространства:");
         // вывод должен быть в корректном формате
-        System.out.println(...);
+        System.out.println(finish.format(formatter));
         // найдите продолжительность
-        Duration duration = ...;
+        Duration duration = Duration.between(start, finish);
 
         // сравните продолжительность в секундах с количеством секунд в сутках
         // воспользуйтесь константой SECONDS_IN_DAY
-        if (...){
+        if (duration.getSeconds() >= SECONDS_IN_DAY) {
             // выведите продолжительность в днях
-            System.out.println("Дней на гиперпрыжок: " + ...);
-        } else{
+            System.out.println("Дней на гиперпрыжок: " + duration.toDays());
+        } else {
             // выведите продолжительность в минутах
-            System.out.println("Минут на гиперпрыжок: " + ...);
+            System.out.println("Минут на гиперпрыжок: " + duration.toMinutes());
         }
         System.out.println();
     }
