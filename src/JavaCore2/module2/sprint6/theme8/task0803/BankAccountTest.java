@@ -1,18 +1,20 @@
 package JavaCore2.module2.sprint6.theme8.task0803;
 
-import org.junit.jupiter.api.Test;
-
+/*import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
+import java.sql.Array;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertNull;
 public class BankAccountTest {
-
     @Test
     public void shouldNotBeBlockedWhenCreated() {
         BankAccount account = new BankAccount("a", "b");
         assertFalse(account.isBlocked());
     }
-
     @Test
     public void shouldReturnZeroAmountAfterActivation() {
         BankAccount account = new BankAccount("a", "b");
@@ -20,7 +22,32 @@ public class BankAccountTest {
         assertEquals(new Integer(0), account.getAmount());
         assertEquals("RUB", account.getCurrency());
     }
-}
+    @Test
+    public void shouldBeBlockedAfterBlockIsCalled() {
+        BankAccount account = new BankAccount("a", "b");
+        account.block();
+        assertTrue(account.isBlocked());
+    }
+    @Test
+    public void shouldReturnFirstNameThenSecondName() {
+        BankAccount account = new BankAccount("a", "b");
+        assertArrayEquals(new String[]{"a", "b"}, account.getFullName());
+    }
+    @Test
+    public void shouldReturnNullAmountWhenNotActive() {
+        BankAccount account = new BankAccount("a", "b");
+        IllegalStateException exception = assertThrows(
+                IllegalStateException.class,
+                new Executable() {
+                    @Override
+                    public void execute() {
+                        account.getAmount();
+                        assertNull(account.getCurrency());
+                    }
+                });
+        assertEquals("Счёт не активирован.", exception.getMessage());
+    }
+}*/
 /*
 Ваш коллега-программист написал класс BankAccount, но не покрыл его функциональность тестами.
 Коллега давно уволился, а класс используется практически везде в вашей программе, поэтому просто
