@@ -1,8 +1,8 @@
 package JavaCore2.module2.sprint6.theme7.task0702;
 
 import java.time.LocalDate;
-        import java.time.LocalTime;
-
+import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 class Practicum {
     public static void main(String[] args) {
@@ -15,12 +15,12 @@ class Practicum {
 
     private static int decode(LocalDate secretDate, LocalTime secretTime) {
         // объедините secretDate и secretTime
-        ... newTime = ...
+        LocalDateTime newTime = LocalDateTime.of(secretDate, secretTime);
 
         // вычтите 2 месяца, 25 дней и 100 минут
-        ... secretMoment = ...
+        LocalDateTime secretMoment = newTime.minusMonths(2).minusDays(25).minusMinutes(100);
         // найдите произведение порядкового номера дня в году и часов из secretMoment
-        return ... * ...;
+        return secretMoment.getDayOfYear() * secretMoment.getHour();
     }
 }
 /*
