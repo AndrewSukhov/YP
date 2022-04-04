@@ -9,9 +9,9 @@ import java.time.format.DateTimeFormatter;
 class Practicum {
     // Задайте форматирование для времени и даты в формате часы:минуты день.месяц.год
     // Пример - 12:15 02.11.21
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = ...
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm dd.MM.yy");
     // Задайте форматирование для времени в формате часы:минуты
-    public static final DateTimeFormatter TIME_FORMATTER = ...
+    public static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm");
 
     public static void main(String[] args) {
         System.out.println("Тест №1:");
@@ -23,7 +23,6 @@ class Practicum {
                 1,
                 55
         );
-
         System.out.println("\nТест №2:");
         printFlightInformation(
                 "14:00 03.10.21",
@@ -33,7 +32,6 @@ class Practicum {
                 9,
                 5
         );
-
         System.out.println("\nТест №3:");
         printFlightInformation(
                 "06:00 12.12.21",
@@ -43,7 +41,6 @@ class Practicum {
                 12,
                 0
         );
-
         System.out.println("\nТест №4:");
         printFlightInformation(
                 "23:00 29.03.22",
@@ -53,8 +50,6 @@ class Practicum {
                 2,
                 55
         );
-
-
     }
 
     private static void printFlightInformation(
@@ -69,29 +64,33 @@ class Practicum {
         Airport arrivalAirport;
         // С помощью класса AirportDatabase получите данные об аэропортах вылета и посадки.
         // При получении исключения выведите сообщение исключения.
-        ...
-
+        try {
+            departureAirport = AirportDatabase.getAirportByCode(departureAirportCode);
+            arrivalAirport = AirportDatabase.getAirportByCode(arrivalAirportCode);
+        } catch (IllegalStateException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
         // Создайте экземпляр ZonedDateTime с помощью formattedDepartureTime и зоны аэропорта вылета.
-        ZonedDateTime departure = ...
-
+        LocalDateTime departureDateTime = LocalDateTime.parse(formattedDepartureTime, DATE_TIME_FORMATTER);
+        ZoneId departureZoneId = ZoneId.of(departureAirport.getZone());
+        ZonedDateTime departure = ZonedDateTime.of(departureDateTime, departureZoneId);
         // Выведите информацию о том, между какими городами будет перелёт.
-        System.out.println("Ваш билет на рейс " + ... + " - " + ... + ": ");
-
+        System.out.println("Ваш билет на рейс " + departureAirport.getCity() + " - " + arrivalAirport.getCity() + ": ");
         // Найдите продолжительность полёта.
-        Duration flightDuration = ...
+        Duration flightDuration = Duration.ofHours(flightDurationHours).plusMinutes(flightDurationMinutes);
         // Найдите время прибытия с учётом зоны прилёта.
-        ZonedDateTime arrival = ...
-
+        ZoneId arrivalZoneId = ZoneId.of(arrivalAirport.getZone());
+        ZonedDateTime arrival = departure.plus(flightDuration).withZoneSameInstant(arrivalZoneId);
         // Заполните данные для передачи в метод печати билета.
         // Город вылета
-        String departureCity = ...
+        String departureCity = departureAirport.getCityForTicket();
         // Город прилёта
-        String arrivalCity = ...
+        String arrivalCity = arrivalAirport.getCityForTicket();
         // Отформатированное время прилёта
-        String formattedArrivalTime = ...
+        String formattedArrivalTime = arrival.format(DATE_TIME_FORMATTER);
         // Только время вылета
-        String departureTimeOnly = ...
-
+        String departureTimeOnly = departure.format(TIME_FORMATTER);
         printTicket(
                 formattedDepartureTime,
                 departureAirportCode,
@@ -101,23 +100,21 @@ class Practicum {
                 formattedArrivalTime,
                 departureTimeOnly
         );
-
         // Добавьте проверку на случай задержки.
         if (delay > 0) {
             // Определите продолжительность задержки.
-            Duration delayDuration = ...
+            Duration delayDuration = Duration.ofMinutes(delay);
             // Вычислите время вылета с учётом задержки.
-            ZonedDateTime departureWithDelay = ...
+            ZonedDateTime departureWithDelay = departure.plus(delayDuration);
             // Вычислите время прилёта с учётом задержки.
-            ZonedDateTime arrivalWithDelay = ...
-
+            ZonedDateTime arrivalWithDelay = arrival.plus(delayDuration);
             System.out.println("Ваш вылет задерживается.");
             // Выведите продолжительность задержки в формате часы:минуты
-            System.out.println("Задержка: " + ...);
+            System.out.println("Задержка: " + delayDuration.toHours() + ":" + delayDuration.toMinutesPart());
             // Выведите отформатированное время вылета с учётом задержки.
-            System.out.println("Обновлённое время вылета: " + ...);
+            System.out.println("Обновлённое время вылета: " + departureWithDelay.format(DATE_TIME_FORMATTER));
             // Выведите отформатированное время прилёта с учётом задержки.
-            System.out.println("Обновлённое время прилёта: " + ...);
+            System.out.println("Обновлённое время прилёта: " + arrivalWithDelay.format(DATE_TIME_FORMATTER));
         } else {
             System.out.println("Удачного полёта!");
         }
