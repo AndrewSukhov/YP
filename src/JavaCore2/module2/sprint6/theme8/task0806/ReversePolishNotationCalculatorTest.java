@@ -1,14 +1,32 @@
 package JavaCore2.module2.sprint6.theme8.task0806;
 
-import org.junit.jupiter.api.Test;
+/*import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReversePolishNotationCalculatorTest {
+    private final ReversePolishNotationCalculator rpn = new ReversePolishNotationCalculator();
 
     @Test
     public void shouldCalculateAddition() {
-
+        assertEquals(7, rpn.calculatePolishNotation("4 3 +"));
     }
-}
+
+    @Test
+    public void shouldCalculatePl() {
+        assertEquals(-1, rpn.calculatePolishNotation("3 4 -"));
+    }
+
+    @Test
+    public void shouldCalculateYmn() {
+        assertEquals(12, rpn.calculatePolishNotation("3 4 *"));
+    }
+
+    @Test
+    public void shouldCalculateV() {
+        assertEquals(7, rpn.calculatePolishNotation("4 3  + "));
+    }
+}*/
 /*
 Обратная польская нотация (англ. Reverse Polish notation, RPN) — способ записи
 математических выражений, при котором операнды (числа) записываются перед знаками операций.
