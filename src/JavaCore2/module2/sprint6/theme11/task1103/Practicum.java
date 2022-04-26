@@ -73,13 +73,19 @@ class Like {
 
 class LastLikeInfo {
     // ваш код
+    String user;
+    int hours;
+    int minutes;
+
 }
 
 public class Practicum {
 
     public static void main(String[] args) throws IOException {
         String lastLikeInfoStr = "{ \"user\": \"Алексей\", \"hours\": 12, \"minutes\": 30}";
+        Gson gson = new Gson();
         LastLikeInfo lastLikeInfo = // код десериализации
+                gson.fromJson(lastLikeInfoStr, LastLikeInfo.class);
 
                 LikesInfo likesInfo = new LikesInfo();
         likesInfo.setRepostsCount(10);
@@ -92,6 +98,8 @@ public class Practicum {
         });
 
         // код сериализации
+        String jsonString = gson.toJson(likesInfo);
+        System.out.println(jsonString);
     }
 }
 /*
