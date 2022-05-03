@@ -1,6 +1,5 @@
 package JavaCore2.module2.sprint6.theme11.task1106.example;
 
-import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -11,7 +10,7 @@ import java.net.InetSocketAddress;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
-public class Practicum2 {
+public class Practicum3 {
     private static final int PORT = 8080;
 
     public static void main(String[] args) throws IOException {
@@ -31,10 +30,11 @@ public class Practicum2 {
             String method = httpExchange.getRequestMethod();
             System.out.println("Началась обработка " + method + " /hello запроса от клиента.");
 
-            Headers requestHeaders = httpExchange.getRequestHeaders();
-            System.out.println("Заголовки запроса: " + requestHeaders.entrySet());
+            String path = httpExchange.getRequestURI().getPath();
+            String name = path.split("/")[2];
+            System.out.println("Имя: " + name);
 
-            String response = "Hello!";
+            String response = "Привет, " + name + "!";
             httpExchange.sendResponseHeaders(200, 0);
 
             try (OutputStream os = httpExchange.getResponseBody()) {
@@ -44,9 +44,5 @@ public class Practicum2 {
     }
 }
 /*
-http://localhost:8080/hello/
-POST user/{id} создаст пользователя с указанным id.
-GET index/{city}/{street}/{building} вернёт почтовый индекс города city на улице street, здания номер building.
-DELETE user/{email}/comments удалит комментарии пользователя с переданным email.
-
+http://localhost:8080/hello/{имя}
  */
