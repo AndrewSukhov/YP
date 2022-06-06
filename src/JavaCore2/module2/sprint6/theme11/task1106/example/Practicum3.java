@@ -12,7 +12,6 @@ import java.nio.charset.StandardCharsets;
 
 public class Practicum3 {
     private static final int PORT = 8080;
-
     public static void main(String[] args) throws IOException {
         HttpServer httpServer = HttpServer.create();
 
