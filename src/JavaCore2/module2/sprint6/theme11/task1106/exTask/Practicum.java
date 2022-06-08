@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class Practicum {
-    /*private static final int PORT = 8080;
+    private static final int PORT = 8080;
     private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     public static void main(String[] args) throws IOException {
@@ -49,11 +49,17 @@ public class Practicum {
 
                     // извлеките заголовок
                     
-                    List<String> wishGoodDay = ...
+                    List<String> wishGoodDay = httpExchange.getRequestHeaders().get("X-Wish-Good-Day");
 
                     // соберите ответ
-                    response = ...
+                    if ((wishGoodDay != null) && (wishGoodDay.contains("true"))) {
+                        response = "Доброе утро, " + profession + " " + name + "! Хорошего дня!";
+                    } else {
+                        response = "Доброе утро, " + profession + " " + name +"!";
+                    }
                     // не забудьте про ответ для остальных методов
+                default:
+                    response = "Некорректный метод!";
             }
 
             httpExchange.sendResponseHeaders(200, 0);
@@ -61,7 +67,7 @@ public class Practicum {
                 os.write(response.getBytes());
             }
         }
-    }*/
+    }
 }
 /*
 Реализуйте API со следующей логикой:
