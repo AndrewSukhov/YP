@@ -10,22 +10,25 @@ class Practicum {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         // укажите URL-адрес ресурса
-        URI uri = ... ;
+        URI uri = URI.create("https://ya.ru/white");
 
         // создайте объект, описывающий HTTP-запрос
-        HttpRequest request = ... ;
+        //HttpRequest.Builder requestBuilder = HttpRequest.newBuilder();
+        HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
 
         // создайте HTTP-клиент с настройками по умолчанию
-        HttpClient client = ... ;
+        HttpClient client = HttpClient.newHttpClient();
 
         // получите стандартный обработчик тела запроса
         // с конвертацией содержимого в строку
-        HttpResponse.BodyHandler<String> handler = ... ;
+        HttpResponse.BodyHandler<String> handler = HttpResponse.BodyHandlers.ofString();
 
         // отправьте запрос
-        HttpResponse<String> response = ... ;
+        HttpResponse<String> response = client.send(request, handler);
 
         // выведите код состояния и тело ответа
+        System.out.println("Код ответа: " + response.statusCode());
+        System.out.println("Тело ответа: " + response.body());
     }
 }
 /*
