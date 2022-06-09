@@ -5,23 +5,20 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
+import java.util.Scanner;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-public class Practicum {
-
+class Practicum {
     public static void main(String[] args) {
         HttpClient client = HttpClient.newHttpClient();
-
+        Scanner scan = new Scanner(System.in);
         // сформируйте правильный URL-адрес
-        URI url = URI.create( ... );
+        URI url = URI.create("https://ipwhois.app/json/213.186.33.69?lang=fr");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(url)
                 .GET()
                 .build();
-
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             // проверяем, успешно ли обработан запрос
@@ -34,19 +31,16 @@ public class Practicum {
                 }
                 // преобразуем результат разбора текста в JSON-объект
                 JsonObject jsonObject = jsonElement.getAsJsonObject();
-
                 // получаем название страны
                 String country = jsonObject.get("country").getAsString();
                 // получаем название города
                 String city = jsonObject.get("city").getAsString();
                 // получаем значение широты
                 double latitude = jsonObject.get("latitude").getAsDouble();
-
                 // получите значения полей из задания
-                double longitude = ...
-                String countryNeighbours = ...
-                int countryPhone = ...
-
+                double longitude = jsonObject.get("longitude").getAsDouble();
+                String countryNeighbours = jsonObject.get("country_neighbours").getAsString();
+                int countryPhone = jsonObject.get("country_phone").getAsInt();
                 System.out.println("Страна: " + country);
                 System.out.println("Город: " + city);
                 System.out.println("Широта: " + latitude);
