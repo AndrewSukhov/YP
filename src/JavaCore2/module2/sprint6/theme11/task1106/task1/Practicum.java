@@ -70,6 +70,9 @@ public class Practicum {
         HttpServer httpServer = HttpServer.create();
 
         // тут конфигурирование и запуск сервера
+        httpServer.bind(new InetSocketAddress(PORT), 0);
+        httpServer.createContext("/posts", new PostsHandler());
+        httpServer.start();
 
         System.out.println("HTTP-сервер запущен на " + PORT + " порту!");
         httpServer.stop(1);
@@ -79,6 +82,20 @@ public class Practicum {
         @Override
         public void handle(HttpExchange httpExchange) throws IOException {
             // ваш код
+            String method = httpExchange.getRequestMethod();
+            System.out.println("Началась обработка /posts запроса от клиента.");
+            String response = gson.toJson(posts);
+            String pathOfRequest = httpExchange.getRequestURI().getPath();
+
+            if (pathOfRequest.split("/")[2] == null) {
+                httpExchange.sendResponseHeaders(200, 0);
+                response = gson.toJson(posts);
+            }
+
+            try (OutputStream os = httpExchange.getResponseBody()) {
+                os.write(response.getBytes());
+            }
+
         }
     }
 }
