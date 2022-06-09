@@ -1,25 +1,21 @@
 package JavaCore2.module2.sprint6.theme12.task1204.task02;
 
-import java.io.IOException;
+/*import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 public class Practicum {
     public static void main(String[] args) {
         HttpClient client = HttpClient.newHttpClient();
-
         URI url = URI.create("https://api.exchangerate.host/latest?base=RUB&symbols=USD,EUR");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(url)
                 .GET()
                 .build();
-
         try {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             // проверяем, успешно ли обработан запрос
@@ -30,8 +26,10 @@ public class Practicum {
                     return;
                 }
                 // получите курс доллара и евро и запишите в переменные rateUSD и rateEUR
-                . . .
-
+                JsonObject jsonObject = jsonElement.getAsJsonObject();
+                JsonObject rates = jsonObject.get("rates").getAsJsonObject();
+                Double rateUSD = rates.get("USD").getAsDouble();
+                Double rateEUR = rates.get("EUR").getAsDouble();
                 System.out.println("Стоимость рубля в долларах: " + rateUSD + " USD");
                 System.out.println("Стоимость рубля в евро: " + rateEUR + " EUR");
             } else {
@@ -42,7 +40,7 @@ public class Practicum {
                     "Проверьте, пожалуйста, адрес и повторите попытку.");
         }
     }
-}
+}*/
 /*
 Доработайте код клиента для получения курса валют.
 Извлеките из ответа сервера текущие курсы рубля к доллару и к евро.
