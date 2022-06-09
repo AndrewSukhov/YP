@@ -1,6 +1,6 @@
 package JavaCore2.module2.sprint6.theme12.task1204.task01;
 
-import java.io.IOException;
+/*import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -55,7 +55,7 @@ class Practicum {
                     "Проверьте, пожалуйста, адрес и повторите попытку.");
         }
     }
-}
+}*/
 /*
 Доработайте программу. Выведите информацию об IP-адресе 213.186.33.69. Дополнительно выведите следующие поля:
 
